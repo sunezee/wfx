@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--xmlns:th="http://www.thymeleaf.org"-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/index/one.css" rel="stylesheet">
+    <link href="css/bootstrap-treeview.css" rel="stylesheet">
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-treeview.js"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script src="js/vue.js"></script>
+    <title>商品信息管理</title>
+    <style>
+        body{
+            background:#DEDEDE ;
+        }
+        #do{
+            display: flex;
+            width:1025px;
+            border-top: 1px solid gainsboro;
+            boeder-bottom: 2px solid black;
+            margin-bottom: 15px;
+            /*border-radius: 5px;*/
+            padding: 5px;
+            background: #F9F9F9;
+        }
+        #do>button{
+            margin-left: 5px;
+        }
+        .col-lg-6{
+            width: 400px;
+        }
+        .pp{
+            position: absolute;
+            margin-left: 900px;
+            margin-top: 30px;
+            z-index: 100;
+        }
+        .hide{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container" id="rbody">
+<!--    <div id="good_type_list" style="width: 250px;height: 100%;border: 1px solid blue;">-->
+
+<!--    </div>-->
+
+    <div style="display: flex;margin-bottom: 10px;margin-top: 10px">
+        <div>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>商品信息管理 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        </div>
+        <div class="pp">
+            <div id="good_type_list"></div>
+        </div>
+    </div>
+    <div id="do">
+        <button class="btn btn-default" id="goodTop" onclick="change(1)">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>置顶
+        </button>
+        <button class="btn btn-default" id="goodNotTop"  onclick="change(2)">
+            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>取消置顶
+        </button>
+        <button class="btn btn-default" id="goodRecomed" onclick="change(3)">
+            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>推荐
+        </button>
+        <button class="btn btn-default" id="goodNotRecomed" onclick="change(4)">
+            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>取消推荐
+        </button>
+        <button class="btn btn-default" id="goodState" onclick="change(5)">
+            <span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span>上架
+        </button>
+        <button class="btn btn-default" id="goodNotState" onclick="change(6)">
+            <span class="glyphicon glyphicon-object-align-top" aria-hidden="true"></span>下架
+        </button>
+        <div class="col-lg-6">
+            <div class="input-group">
+                  <input id="search" type="text" class="form-control" placeholder="请输入关键字..." required>
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" onclick="search()">
+                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>序号</th>
+                <th><input type="checkbox" class="th-role"></th>
+                <th>商品名称</th>
+                <th>商品图片</th>
+                <th>商户名称</th>
+                <th>是否置顶</th>
+                <th>是否推荐</th>
+                <th>价格</th>
+                <th>状态</th>
+                <th>排序</th>
+            </tr>
+            <tr th:each="good,goodsStat:${goods.records}" class="tr-role">
+                <td th:text="${goodsStat.count}"></td>
+                <td><input type="checkbox" class="ck-role"><input type="hidden" th:value="${good.goodId}"></td>
+                <td th:text="${good.goodName}" style="color: #2e6da4;cursor: pointer"></td>
+                <td>
+                    <img th:src="${good.goodPic}" style="width: 100px;height: 100px">
+                </td>
+                <td th:text="${good.customerId}"></td>
+                <td th:if="${good.toped}==1" th:text="已置顶" style="color: red"></td>
+                <td th:if="${good.toped}==0" th:text="未置顶" style="color: gray"></td>
+                <td th:if="${good.recomed}==1" th:text="已推荐" style="color: rebeccapurple"></td>
+                <td th:if="${good.recomed}==0" th:text="未推荐" style="color: gray"></td>
+                <td th:text="${good.skuPrice}"></td>
+                <td th:if="${good.state}==0" th:text="待审核" style="color: goldenrod"></td>
+                <td th:if="${good.state}==1" th:text="已上架" style="color: green"></td>
+                <td th:if="${good.state}==2" th:text="已下架" style="color: gray"></td>
+                <td th:text="${good.orderNo}"></td>
+            </tr>
+        </table>
+        <input type="hidden" id="current" th:value="${goods.current}">
+        <input type="hidden" id="pages" th:value="${goods.pages}">
+        <div th:if="${goods.pages==0}" style="margin: auto;width: 350px;font-size: 20px;font-weight: bold">对不起，搜索不到你想要的数据...</div>
+    <div  id="rolePage" style="margin: auto" th:class="${goods.pages==0}?'hide':''">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li style="border: none;cursor: pointer;" class="prepage" th:class="${goods.current==1}?'disabled':''">
+                    <span class="Previous" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                </span>
+                </li>
+                <li  style="border: none;cursor: pointer;" th:each="i:${#numbers.sequence(1,goods.pages)}" th:class="${goods.current==i}?'active':''">
+                    <span class="pageTo" th:text="${i}"><span class="sr-only"></span></span>
+                </li>
+                <li style="border: none;cursor: pointer;" class="nextpage" th:class="${goods.current==goods.pages}?'disabled':''">
+                    <span  class="Next" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script type="text/javascript">
+    //模糊搜索
+    function search() {
+        var s=$("#search").val();
+        if(s=="1"){
+            alert("请输入合适的内容")
+        }else{
+            page(1,s);
+            $("#rolePage").css("display","none");
+        }
+    }
+    //置顶，推荐，上下架等
+    function change(i){
+        var len=$(".tr-role").find("input[type='checkbox']:checked").length;
+        if(len<=0){
+            alert("请先选择要操作的数据");
+            return;
+        }
+        var gid="";
+        $(".tr-role").find("input[type='checkbox']:checked").next().each(function(){
+            gid+=$(this).val()+",";
+        });
+        // console.log(gid);
+        if(confirm("确认进行该操作吗？")){
+            $.get("http://localhost:8484/good/change?goodId="+gid+"&i="+i,
+                function (resp) {
+                    if(resp.msg=="success"){
+                        $("#content").load(resp.data);
+                    }
+                }
+            )
+        }
+    }
+    $(function(){
+        //给角色的复选行添加点击事件，让复选框实现单选效果
+        // $(".tr-role").click(function () {
+        //     //去掉所有复选框的选中效果
+        //     $(".ck-role").prop("checked",false);
+        //     //给当前选中的复选框设置选中效果
+        //     $(this).find(".ck-role").prop("checked",true);
+        // });
+        //一键全选与全不选
+        $(".th-role").click(function(){
+            var p=$(this).prop("checked");
+            $(".ck-role").prop("checked",p);
+        })
+        //上一页
+        $(".Previous").click(function(){
+            var current=parseInt($("#current").val());
+            if(current>1){
+                goodPage(current-1)
+            }
+        })
+        //下一页
+        $(".Next").click(function(){
+            var current=parseInt($("#current").val());
+            var pages=parseInt($("#pages").val());
+            if(current<pages){
+                goodPage(current+1)
+            }
+        })
+        //指定页
+        $(".pageTo").click(function(){
+            var pageNo=$(this).text();
+            goodPage(pageNo);
+        });
+        //ajax连接后台读取商品类型表
+        $.get("http://localhost:8484/goodType/typeList",function(resp){
+            // console.log(resp.data);
+            $('#good_type_list').treeview({
+                levels: 1,
+                color: "#428bca",
+                data: resp.data,
+                onNodeSelected: function(event,node){
+                    //点击节点后，让div加载href属性对应的页面
+                    $("#content").load(node.href);
+                    var typeName=node.href.substring(node.href.length-2,node.href.length);
+                    // console.log(typeName)
+                    sessionStorage.setItem("typeName",typeName);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

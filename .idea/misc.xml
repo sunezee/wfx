@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/bookmall" />
+    <file type="web" url="file://$PROJECT_DIR$/mitaole" />
+    <file type="web" url="file://$PROJECT_DIR$/mybatis" />
+    <file type="web" url="file://$PROJECT_DIR$/ReverseEngineering" />
+    <file type="web" url="file://$PROJECT_DIR$/shiro_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/springaop" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvc" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/wfx_wxpay" />
+    <file type="web" url="file://$PROJECT_DIR$/winterholidayhomework" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springaop/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc/pom.xml" />
+        <option value="$PROJECT_DIR$/bookmall/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/ReverseEngineering/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/mitaole/pom.xml" />
+        <option value="$PROJECT_DIR$/mitaolefront/pom.xml" />
+        <option value="$PROJECT_DIR$/Lambda_demo2/pom.xml" />
+        <option value="$PROJECT_DIR$/shiro_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/mitaole_admin/pom.xml" />
+        <option value="$PROJECT_DIR$/springbootest/pom.xml" />
+        <option value="$PROJECT_DIR$/winterholidayhomework/pom.xml" />
+        <option value="$PROJECT_DIR$/fresh_front/pom.xml" />
+        <option value="$PROJECT_DIR$/person/pom.xml" />
+        <option value="$PROJECT_DIR$/fresh_admin/pom.xml" />
+        <option value="$PROJECT_DIR$/hua/pom.xml" />
+        <option value="$PROJECT_DIR$/pa_chong/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_cust/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_mber/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_wxpay/pom.xml" />
+        <option value="$PROJECT_DIR$/hua_admin/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_login/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka_server/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_goods/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/wfx_config/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

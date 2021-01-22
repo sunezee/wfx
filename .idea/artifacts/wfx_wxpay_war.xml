@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wfx_wxpay:war">
+    <output-path>$PROJECT_DIR$/wfx_wxpay/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>wfx_wxpay</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="wfx_wxpay.war">
+      <element id="artifact" artifact-name="wfx_wxpay:war exploded" />
+    </root>
+  </artifact>
+</component>

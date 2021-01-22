@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="fresh_front" />
+        <module name="wfx_gateway" />
+        <module name="wfx_mber" />
+        <module name="mitaolefront" />
+        <module name="ReverseEngineering" />
+        <module name="hua" />
+        <module name="mitaole_admin" />
+        <module name="hua_admin" />
+        <module name="mitaole" />
+        <module name="springmvc" />
+        <module name="wfx_cust" />
+        <module name="wfx_config" />
+        <module name="springbootest" />
+        <module name="wfx_login" />
+        <module name="springaop" />
+        <module name="wfx" />
+        <module name="eureka_server" />
+        <module name="shiro_demo" />
+        <module name="mybatis" />
+        <module name="fresh_admin" />
+        <module name="Lambda_demo2" />
+        <module name="ssm_demo" />
+        <module name="wfx_goods" />
+        <module name="person" />
+        <module name="winterholidayhomework" />
+        <module name="bookmall" />
+        <module name="wfx_wxpay" />
+        <module name="pa_chong" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bookmall" target="1.8" />
+      <module name="eureka_server" target="1.8" />
+      <module name="fresh_admin" target="1.8" />
+      <module name="fresh_front" target="1.8" />
+      <module name="hua" target="1.8" />
+      <module name="hua_admin" target="1.8" />
+      <module name="Lambda_demo2" target="1.8" />
+      <module name="mitaole" target="1.8" />
+      <module name="mitaole_admin" target="1.8" />
+      <module name="mitaolefront" target="1.8" />
+      <module name="mybatis" target="1.8" />
+      <module name="pa_chong" target="1.8" />
+      <module name="person" target="1.8" />
+      <module name="ReverseEngineering" target="1.8" />
+      <module name="shiro_demo" target="1.8" />
+      <module name="springaop" target="1.8" />
+      <module name="springbootest" target="1.8" />
+      <module name="springmvc" target="1.8" />
+      <module name="ssm_demo" target="1.8" />
+      <module name="wfx" target="1.8" />
+      <module name="wfx_config" target="1.8" />
+      <module name="wfx_cust" target="1.8" />
+      <module name="wfx_gateway" target="1.8" />
+      <module name="wfx_goods" target="1.8" />
+      <module name="wfx_login" target="1.8" />
+      <module name="wfx_mber" target="1.8" />
+      <module name="wfx_wxpay" target="1.7" />
+      <module name="winterholidayhomework" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka_server" options="-parameters" />
+      <module name="fresh_admin" options="-parameters" />
+      <module name="fresh_front" options="-parameters" />
+      <module name="hua" options="-parameters" />
+      <module name="hua_admin" options="-parameters" />
+      <module name="mitaole_admin" options="-parameters" />
+      <module name="mitaolefront" options="-parameters" />
+      <module name="pa_chong" options="-parameters" />
+      <module name="person" options="-parameters" />
+      <module name="springbootest" options="-parameters" />
+      <module name="wfx" options="-parameters" />
+      <module name="wfx_config" options="-parameters" />
+      <module name="wfx_cust" options="-parameters" />
+      <module name="wfx_gateway" options="-parameters" />
+      <module name="wfx_goods" options="-parameters" />
+      <module name="wfx_login" options="-parameters" />
+      <module name="wfx_mber" options="-parameters" />
+    </option>
+  </component>
+</project>

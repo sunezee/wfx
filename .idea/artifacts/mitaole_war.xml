@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mitaole:war">
+    <output-path>$PROJECT_DIR$/mitaole/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>mitaole</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="mitaole.war">
+      <element id="artifact" artifact-name="mitaole:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://localhost:8081/goods/index/pb1n3rya -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>自媒体盈利平台</title>
+    <meta property="qc:admins" content="4441727777670263757">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
+    <link rel="stylesheet" type="text/css" href="./static/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/style-metronic.css">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+    <link rel="stylesheet" type="text/css" href="./static/jquery.fancybox.css">
+    <!--[if IE 8]>
+    <script type="text/javascript" src="/wxb/script/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var SITE_PUBLIC = '/';
+        var SITE_UPLOAD = '/files/';
+    </script>
+</head>
+<body class="admin" style="">
+<!-- top start-->
+
+
+<div class="header signup-header">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://localhost:8081/user/index">
+                <img src="./static/logo.png" id="logoimg" alt="logo">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="menu-user dropdown">
+                    <span class="sep"></span>
+                    <span class="user-btn" id="dropdownMenu1" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                     jack520007
+                    </span>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu user-box" role="menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="http://localhost:8081/user/setting"><i class="fa fa-user"></i> 我的资料 </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8081/user/logout"><i class="fa fa-power-off"></i> 注销用户 </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- top over-->
+<div class="page-container" style="min-height: 402px;">
+    <div class="container">
+        <div class="page-border">
+            <div class="row">
+                <div class="col-xs-2 layout-left">
+                    <!-- menu start-->
+
+                    <div class="menu_box" id="menuBar">
+                        <dl class="menu ">
+                            <dt class="menu_title clickable  ">
+                                <a href="http://localhost:8082/mberpage/index.html">
+                                    <i class="icon_menu fa fa-user"></i>用户中心
+                                </a>
+                            </dt>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable selected">
+                                <a href="http://localhost:8082/good/goodList?pageNo=1">
+                                    <i class="icon_menu fa fa-cubes"></i>产品及文案
+                                </a>
+                            </dt>
+
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable ">
+                                <a href="http://localhost:8081/zjy/index">
+                                    <i class="icon_menu fa fa-cubes"></i>特色推广
+                                </a>
+                            </dt>
+
+                        </dl>
+                        <dl class="menu">
+                            <dt class="menu_title"><i class="icon_menu fa fa-file-text"></i>订单与结算</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8082/order/orderList?pageNo=1">我推广的订单</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/payoff/list">结算与返款</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/payoff/log">订单结算流水</a>
+                            </dd>
+                        </dl>
+
+
+                        <dl class="menu ">
+                            <dt class="menu_title"><i class="icon_menu fa fa-pie-chart"></i>订单统计</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/report/goods">商品推广统计</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/report/channel">渠道推广统计</a>
+                            </dd>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title"><i class="icon_menu fa fa-cog"></i>资料设置</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/channel/list">渠道设置</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/user/setting">基本信息</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/user/reset">修改密码</a>
+                            </dd>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable">
+                                <a href="http://localhost:8081/user/logout">
+                                    <i class="icon_menu fa fa-power-off"></i>退出登录
+                                </a>
+                            </dt>
+                        </dl>
+                    </div>
+                    <!-- menu over-->
+                </div>
+
+                <div class="col-xs-10 layout-right min-height-1">
+                    <style>
+                        .good-info {
+                            padding: 20px;
+                        }
+
+                        .good-info .row {
+                            padding: 10px 0;
+                            border-bottom: 1px solid #e8e8eb;
+                        }
+
+                        .info-title {
+                            font-weight: bold;
+                            color: #666666;
+                            width: 150px;
+                        }
+
+                        .add-area .form-control {
+                            width: 200px;
+                            margin-right: 10px;
+                            display: inline;
+                        }
+
+                        .link-url-wrap .form-control {
+                            width: 550px;
+                            display: inline-block;
+                        }
+
+                        .link-title {
+                            width: 100px;
+                            text-align: right;
+                            float: left;
+                        }
+
+                        .link-content {
+                            float: left;
+                            width: 650px;
+                        }
+
+                        .link-title, .link-content {
+                            margin-bottom: 1px;
+                            min-height: 34px;
+                            line-height: 34px;
+                        }
+                    </style>
+
+                    <h2 class="page-title">
+                        <em th:text="${good.goodName}">444 </em>
+                        <a class="btn btn-yellow" th:href="@{http://localhost:8082/good/getOrder/(goodId=${good.goodId})}"
+                           target="_blank">录单</a>
+                    </h2>
+                    <div class="good-info">
+                        <div class="row">
+                            <div class="col-xs-2 info-title">
+                                商户信息
+                            </div>
+                            <div class="col-xs-10 info-detail">
+                                商户：<em class="highlight-em" th:text="${cust.customerName}"> qq123456 </em>， 联系QQ：<em class="highlight-em" th:text="${cust.qq}"> 123456 </em>(工作时间联系)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2 info-title">
+                                推广说明
+                            </div>
+                            <div class="col-xs-10 info-detail" th:text="${good.promoteDesc}">
+                                2
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2 info-title">
+                                商品图片
+                            </div>
+                            <div class="col-xs-10 info-detail">
+
+                                <div class="item"
+                                     style="display:table;margin-bottom:0px;width:125px;height:116px;float:left;">
+                                    <a href="./static/pb1n3rya_1.jpg" title="" data-rel="fancybox-button"
+                                       class="fancybox-button">
+                                        <div class="zoom">
+                                            <p style="text-align: center"></p>
+                                            <img th:src="${good.goodPic}" style="width:125px;height:85px;" alt="">
+                                            <div class="zoom-icon"></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="item"
+                                     style="margin-left:20px;display:table;margin-bottom:0px;width:125px;height:71px;float:left;">
+                                    <a href="./static/pb1n3rya_2.jpg" title="" data-rel="fancybox-button"
+                                       class="fancybox-button">
+                                        <div class="zoom">
+                                            <p style="text-align: center"></p>
+                                            <img th:src="${good.goodPic1}" style="width:125px;height:85px;" alt="">
+                                            <div class="zoom-icon"></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="item"
+                                     style="margin-left:20px;display:table;margin-bottom:0px;width:125px;height:71px;float:left;">
+                                    <a href="./static/pb1n3rya_3.jpg" title="" data-rel="fancybox-button"
+                                       class="fancybox-button">
+                                        <div class="zoom">
+                                            <p style="text-align: center"></p>
+                                            <img th:src="${good.goodPic2}" style="width:125px;height:85px;" alt="">
+                                            <div class="zoom-icon"></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2 info-title">
+                                商品SKU
+                            </div>
+                            <div class="col-xs-10 info-detail">
+                                <table class="table table-cps table-hover  table-advance">
+                                    <thead>
+                                    <tr>
+                                        <th>销售SKU</th>
+                                        <th>价格（元）</th>
+                                        <th>分成（元）</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr th:each="sku:${good.sku2List}">
+                                        <td th:text="${sku.skuName}">1</td>
+                                        <td class="text-yellow" th:text="${sku.skuPrice}">1</td>
+                                        <td class="text-green" th:text="${sku.skuPmoney}">1</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2 info-title">
+                                设置推广渠道
+                            </div>
+                            <div class="col-xs-10 info-detail">
+                                <div class="add-area">
+                                    <select class="form-control" id="CH">
+                                        <option value="" rev="cGIxbjNyeWEtMDM0NTI0MTQ=">不设置渠道</option>
+                                        <option th:each="channel:${channelList}" th:value="${channel.channelId}" th:text="${channel.channelName}">基本原则</option>
+<!--                                        <option value="35" rev="cGIxbjNyeWEtMDM0NTI0MTQtMzU=">基本原则</option>-->
+<!--                                        <option value="36" rev="cGIxbjNyeWEtMDM0NTI0MTQtMzY=">基本原则</option>-->
+<!--                                        <option value="37" rev="cGIxbjNyeWEtMDM0NTI0MTQtMzc=">4214</option>-->
+                                    </select>
+                                    <span style="margin-left: 100px;">新增渠道：</span>
+                                    <input type="text" id="acName" maxlength="40" placeholder="渠道名称"
+                                           class="ac-name form-control">
+                                    <span id="addChn" class="btn btn-yellow">确定</span>
+                                </div>
+                                <div class="tips-style">
+                                    <i class="fa fa-info-circle"></i>
+                                    可选项，设置推广渠道后可按推广渠道统计订单，以分析或对比渠道的推广效果
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-2 info-title">
+                            一键分享推广
+                        </div>
+                        <div class="col-xs-10 info-detail link-url-wrap">
+                            <div class="link-title">选择推广链接：</div>
+                            <div class="link-content">
+                                <!-- JiaThis Button BEGIN -->
+                                <div class="jiathis_style_24x24">
+                                    <a class="jiathis_button_qzone"></a>
+                                    <a class="jiathis_button_tsina"></a>
+                                    <a class="jiathis_button_tqq"></a>
+                                    <a class="jiathis_button_weixin"></a>
+                                    <a class="jiathis_button_renren"></a>
+                                    <a href="http://www.jiathis.com/share"
+                                       class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank" th:text="${good.forwardLink}"></a>
+                                    <a class="jiathis_counter_style"></a>
+                                </div>
+
+                                <script type="text/javascript">
+                                    var spcInfo = "1";
+                                    var jiathis_config;
+                                    if (spcInfo == '' || spcInfo == '1') {
+                                        jiathis_config = {
+                                            url: "http://115.29.207.161:8080/buy/0/cGIxbjNyeWEtMDM0NTI0MTQ=",
+                                            summary: "444",
+                                            title: "2",
+                                            pic: "imageFolder/20160509/pb1n3rya_1.jpg",
+                                            shortUrl: false,
+                                            hideMore: false
+                                        }
+                                    } else {
+                                        jiathis_config = {
+                                            url: "http://115.29.207.161:8080/spc//2/cGIxbjNyeWEtMDM0NTI0MTQ=",
+                                            summary: "444",
+                                            title: "2",
+                                            pic: "imageFolder/20160509/pb1n3rya_1.jpg",
+                                            shortUrl: false,
+                                            hideMore: false
+                                        }
+                                    }
+
+                                </script>
+
+                                <script type="text/javascript" src="./static/jia.js" charset="utf-8"></script>
+                                <!-- JiaThis Button END -->
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice-info">
+                        <p><strong>说明提示:</strong></p>
+                        <p>1、可根据情况设置渠道参数（直接在此页面新增渠道即可）来统计分析不同渠道的<em>推广效果</em>；</p>
+                        <p>2、建议您<em>将公众号设为渠道</em>，方便查看推广效果；</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start-->
+
+
+<div class="right-service closed">
+    <img class="RS-img" src="./static/wxb.png">
+    <div class="RS-wrap">
+        <div class="RS-title">@在线客服<span class="RS-title-right-btn"><i class="fa fa-angle-right"></i></span></div>
+        <div class="RS-title-for-closed"><i class="fa fa-ellipsis-h"></i><br>在线客服</div>
+        <ul class="RS-ul">
+            <li class="RS-i1"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">合作咨询<br><span>小强</span></a>
+            </li>
+            <li class="RS-i2"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">异常订单<br><span>小薇</span></a>
+            </li>
+            <li class="RS-i3"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">财务返款<br><span>小丽</span></a>
+            </li>
+        </ul>
+        <div class="RS-bottom">400-123-1234</div>
+    </div>
+</div>
+
+<div class="copyright">
+    <div class="container text-center">
+        <p>
+            <span class="copyright-icon copyright-icon-1"><img src="./static/copyright-pic-1.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-2"><img src="./static/copyright-pic-2.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-3"><img src="./static/copyright-pic-3.jpg" width="117"></span>
+            <span class="copyright-icon copyright-icon-4"><img src="./static/copyright-pic-4.jpg" width="109"></span>
+        </p>
+        <p>
+            Copyright ? 2015
+        </p>
+        <p>
+            客服电话：400-123-1234
+        </p>
+
+    </div>
+</div>
+<div id="topcontrol" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer; " title="返回顶部">
+    <div class="back-to-top"></div>
+</div>
+
+<!-- cnzz 统计开始
+<div style='display:none'>
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_307679'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D307679' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+ cnzz 统计结束-->
+<!-- footer over-->
+
+<script type="text/javascript" src="./static/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./static/bootstrap.min.js"></script>
+<script type="text/javascript" src="./static/underscore-min.js"></script>
+<script type="text/javascript" src="./static/back-to-top.js"></script>
+<script type="text/javascript" src="./static/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="./static/win.js"></script>
+
+<script type="text/javascript" src="./static/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="./static/app.js"></script>
+<script type="text/javascript" src="./static/ZeroClipboard.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var chnSel = $('#CH');
+
+        ZeroClipboard.config({swfPath: SITE_PUBLIC + "wxb/script/ZeroClipboard.swf"});
+        var client = new ZeroClipboard(document.getElementById("copyButton"));
+        client.on('ready', function (event) {
+            client.on('copy', function (event) {
+                var link = $('#linkUrl').val();
+                event.clipboardData.setData('text/html', link);
+                event.clipboardData.setData('text/plain', link);
+            });
+            client.on('aftercopy', function (event) {
+                toastr.success('复制成功', '');
+            });
+        });
+
+
+        chnSel.change(function () {
+            var val = $(this).find("option:selected").attr('rev');
+            var link = $('#linkUrl').attr('data-link');
+            $('#linkUrl').val("http://115.29.207.161:8080/buy/0/" + val);
+            //更新二维码
+            var url = '/index/barcode?qtext=http://115.29.207.161:8080/buy/0/' + val;
+            $('#wlinkCode').attr('src', url + '&t=' + new Date().getTime());
+
+
+        });
+
+        $('#addChn').click(function () {
+            var addBtn = $('#acName');
+            var acName = $('#acName');
+            var name = acName.val();
+            if (name == '') {
+                toastr.error('渠道名称不能为空！', '提示');
+                acName.focus();
+            } else {
+                var loading = App.showLoading(addBtn);
+                $.ajax({
+                    url: 'http://115.29.207.161:8080/channel/save',
+                    type: 'post',
+                    data: {name: name},
+                    dataType: 'text',
+                    success: function (response) {
+                        var suc = response.split("#")[0];
+                        var msg = response.split("#")[1];
+                        loading.revert();
+                        if (suc == 0) {
+                            acName.val('');
+                            getNewRev(msg, function (data) {
+                                toastr.success('', '新增渠道成功！');
+                                chnSel.append('<option value="' + msg + '" rev="' + data + '">' + name + '</option>');
+                            });
+                        } else {
+                            toastr.error(msg, '新增渠道失败！');
+                        }
+                    },
+                    error: function () {
+                        loading.revert();
+                    }
+                });
+            }
+        });
+    });
+
+    function getNewRev(id, callback) {
+        $.ajax({
+            url: 'http://115.29.207.161:8080/goods/buykey',
+            type: 'get',
+            data: {goods_id: 'pb1n3rya', channel_id: id},
+            dataType: 'text',
+            success: function (response) {
+                var suc = response.split("#")[0];
+                var msg = response.split("#")[1];
+                if (suc == 0) {
+                    if (callback) {
+                        callback(msg);
+                    }
+                } else {
+                    toastr.error(msg, '获取新渠道参数失败！');
+                }
+            },
+            error: function (response) {
+                var suc = response.split("#")[0];
+                var msg = response.split("#")[1];
+                toastr.error(msg, '获取新渠道参数失败！');
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+    });
+</script>
+<div id="topcontrol" title="返回顶部" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer;">
+    <div class="back-to-top"></div>
+</div>
+</body>
+</html>

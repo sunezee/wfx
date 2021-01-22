@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://localhost:8081/cust/order/list -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./static/default.css" rel="stylesheet" id="lhgdialoglink">
+		
+		<title>商户订单管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- head start-->
+        
+<link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
+<link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
+<link href="./static/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./static/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="/customer/assets/css/font-awesome-ie7.min.css" />
+<![endif]-->
+<link rel="stylesheet" href="./static/font.css">
+<link rel="stylesheet" href="./static/ace.min.css">
+<link rel="stylesheet" href="./static/ace-rtl.min.css">
+<link rel="stylesheet" href="./static/jquery-ui-1.10.3.custom.min.css">
+<link rel="stylesheet" href="./static/jquery.gritter.css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="/customer/assets/css/ace-ie.min.css" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./static/public.css">
+
+<script src="./static/ace-extra.min.js"></script>
+<!--[if lt IE 9]>
+<script src="/customer/assets/js/html5shiv.js"></script>
+<script src="/customer/assets/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 系统共用js文件 -->
+<link rel="stylesheet" type="text/css" href="./static/ymPrompt.css"> 
+<script type="text/javascript" src="./static/ymPrompt.js"></script> 
+<script type="text/javascript" src="./static/public.js"></script>
+<script type="text/javascript" src="./static/publics.js"></script>
+<script type="text/javascript" src="./static/table.js"></script>
+<script type="text/javascript" src="./static/vdata.js"></script>
+
+        <!-- head over-->
+	<link href="./static/WdatePicker.css" rel="stylesheet" type="text/css"></head>
+
+	<body style=""><div style="position: absolute; left: -9999em; top: 223px; visibility: visible; width: auto; z-index: 1976;"><table class="ui_border ui_state_visible ui_state_focus"><tbody><tr><td class="ui_lt"></td><td class="ui_t"></td><td class="ui_rt"></td></tr><tr><td class="ui_l"></td><td class="ui_c"><div class="ui_inner"><table class="ui_dialog"><tbody><tr><td colspan="2"><div class="ui_title_bar"><div class="ui_title" unselectable="on" style="cursor: move;">视窗 </div><div class="ui_title_buttons"><a class="ui_min" href="javascript:void(0);" title="最小化" style="display: inline-block;"><b class="ui_min_b"></b></a><a class="ui_max" href="javascript:void(0);" title="最大化" style="display: inline-block;"><b class="ui_max_b"></b></a><a class="ui_res" href="javascript:void(0);" title="还原"><b class="ui_res_b"></b><b class="ui_res_t"></b></a><a class="ui_close" href="javascript:void(0);" title="关闭(esc键)" style="display: inline-block;">×</a></div></div></td></tr><tr><td class="ui_icon" style="display: none;"></td><td class="ui_main" style="width: auto; height: auto;"><div class="ui_content" style="padding: 10px;"><div class="ui_loading"><span>loading...</span></div></div></td></tr><tr><td colspan="2"><div class="ui_buttons" style="display: none;"></div></td></tr></tbody></table></div></td><td class="ui_r"></td></tr><tr><td class="ui_lb"></td><td class="ui_b"></td><td class="ui_rb" style="cursor: se-resize;"></td></tr></tbody></table></div>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<!-- head start-->
+	        
+<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="http://localhost:8081/cust/index" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							微信公众号盈利平台-商户后台管理
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="http://localhost:8081/cust/order/list#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="./static/user.jpg" alt="Jason&#39;s Photo">
+								<span class="user-info">
+									<small>欢迎您,</small>
+									123456
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="http://localhost:8081/cust/chpwd">
+										<i class="icon-cog"></i>
+										修改密码
+									</a>
+								</li>
+
+								<li>
+									<a href="http://localhost:8081/cust/setting">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="http://localhost:8081/cust/logout">
+										<i class="icon-off"></i>
+										退出登录
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+	        <!-- head over-->
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="http://localhost:8081/cust/order/list#">
+					<span class="menu-text"></span>
+				</a>
+
+				<!-- head start-->
+		        
+
+<div class="sidebar" id="sidebar">
+	<script type="text/javascript">
+		try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+	</script>
+
+	<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+		<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+			<button class="btn btn-success" onclick="window.location.href=&#39;/cust/report/good&#39;">
+				<i class="icon-signal"></i>
+			</button>
+
+			<button class="btn btn-info" onclick="window.location.href=&#39;/cust/setting&#39;">
+				<i class="icon-pencil"></i>
+			</button>
+
+			<button class="btn btn-warning" onclick="window.location.href=&#39;/cust/order/count/1&#39;">
+				<i class="icon-group"></i>
+			</button>
+
+			<button class="btn btn-danger" onclick="window.location.href=&#39;/cust/chpwd&#39;">
+				<i class="icon-cogs"></i>
+			</button>
+		</div>
+
+		<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+			<span class="btn btn-success"></span>
+
+			<span class="btn btn-info"></span>
+
+			<span class="btn btn-warning"></span>
+
+			<span class="btn btn-danger"></span>
+		</div>
+	</div><!-- #sidebar-shortcuts -->
+
+	<ul class="nav nav-list">
+		<li>
+			<a href="http://localhost:8081/cust/index">
+				<i class="icon-home"></i>
+				<span class="menu-text"> 系统首页 </span>
+			</a>
+		</li>
+
+		<li>
+			<a href="http://localhost:8081/cust/order/list#" class="dropdown-toggle">
+				<i class="icon-list"></i>
+				<span class="menu-text"> 商品管理 </span>
+
+				<b class="arrow icon-angle-down"></b>
+			</a>
+
+			<ul class="submenu">
+				<li>
+					<a href="http://localhost:8081/cust/goods/list">
+						<i class="icon-double-angle-right"></i>
+						商品信息
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/goods/add">
+						<i class="icon-pencil"></i>
+						增加商品
+					</a>
+				</li>
+				<li>
+					<a href="http://localhost:8081/cust/goods/copy/list">
+						<i class="icon-double-angle-right"></i>
+						商品文案
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/goods/copy/add?tp=0">
+						<i class="icon-pencil"></i>
+						增加微信文案
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/goods/copy/add?tp=1">
+						<i class="icon-pencil"></i>
+						增加站内文案
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/goods/copy/add?tp=2">
+						<i class="icon-pencil"></i>
+						增加空间文案
+					</a>
+				</li>
+			</ul>
+		</li>
+
+		<li class="active open">
+			<a href="http://localhost:8081/cust/order/list#" class="dropdown-toggle">
+				<i class="icon-tag"></i>
+				<span class="menu-text"> 订单管理 </span>
+
+				<b class="arrow icon-angle-down"></b>
+			</a>
+
+			<ul class="submenu">
+
+				<li class="active">
+					<a href="http://localhost:8081/cust/order/list">
+						<i class="icon-double-angle-right"></i>
+						全部的订单
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/list/1">
+						<i class="icon-double-angle-right"></i>
+						已下单订单
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/list/9">
+						<i class="icon-double-angle-right"></i>
+						待跟进订单
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/order/list/2">
+						<i class="icon-double-angle-right"></i>
+						待发货订单
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/order/list/3">
+						<i class="icon-double-angle-right"></i>
+						已取消订单
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/order/list/4">
+						<i class="icon-double-angle-right"></i>
+						已发货订单
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/list/5">
+						<i class="icon-double-angle-right"></i>
+						已结算订单
+					</a>
+				</li>
+				 
+				<li>
+					<a href="http://localhost:8081/cust/order/list/6">
+						<i class="icon-double-angle-right"></i>
+						已拒收订单
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/list/7">
+						<i class="icon-double-angle-right"></i>
+						已签收订单
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/list/8">
+						<i class="icon-double-angle-right"></i>
+						已退货订单
+					</a>
+				</li>
+
+			</ul>
+		</li>
+		
+		
+		<li>
+			<a href="http://localhost:8081/cust/order/list#" class="dropdown-toggle">
+				<i class="icon-bar-chart"></i>
+				<span class="menu-text"> 统计报表</span>
+
+				<b class="arrow icon-angle-down"></b>
+			</a>
+
+			<ul class="submenu">
+
+				<li>
+					<a href="http://localhost:8081/cust/report/good">
+						<i class="icon-double-angle-right"></i>
+						商品销售统计
+					</a>
+				</li>
+
+			</ul>
+		</li>
+
+		<li>
+			<a href="http://localhost:8081/cust/order/list#" class="dropdown-toggle">
+				<i class="icon-credit-card"></i>
+
+				<span class="menu-text">
+					财务管理
+				</span>
+
+				<b class="arrow icon-angle-down"></b>
+			</a>
+
+			<ul class="submenu">
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/count/1">
+						<i class="icon-double-angle-right"></i>
+						待结算流水
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/order/count/2">
+						<i class="icon-double-angle-right"></i>
+						已结算流水
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/order/count/3">
+						<i class="icon-double-angle-right"></i>
+						已返款流水
+					</a>
+				</li>
+				
+				<li>
+					<a href="http://localhost:8081/cust/order/money">
+						<i class="icon-double-angle-right"></i>
+						财务返款单
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/order/paylog">
+						<i class="icon-double-angle-right"></i>
+						支付宝记录
+					</a>
+				</li>
+				
+				<!-- <li >
+					<a href="/cust/charge/list">
+						<i class="icon-double-angle-right"></i>
+						消费与充值
+					</a>
+				</li>-->
+			</ul>
+		</li>
+		
+		<li>
+			<a href="http://localhost:8081/cust/order/list#" class="dropdown-toggle">
+				<i class="icon-group"></i>
+
+				<span class="menu-text">
+					用户管理
+				</span>
+
+				<b class="arrow icon-angle-down"></b>
+			</a>
+
+			<ul class="submenu">
+				<li>
+					<a href="http://localhost:8081/cust/setting">
+						<i class="icon-double-angle-right"></i>
+						基本信息
+					</a>
+				</li>
+
+				<li>
+					<a href="http://localhost:8081/cust/chpwd">
+						<i class="icon-double-angle-right"></i>
+						修改密码
+					</a>
+				</li>
+
+			</ul>
+		</li>
+		
+	</ul>
+	
+	<!-- /.nav-list -->
+	<div class="sidebar-collapse" id="sidebar-collapse">
+		<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+	</div>
+
+	<script type="text/javascript">
+		try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+	</script>
+</div>
+		        <!-- head over-->
+
+				<div class="main-content">
+				   
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="http://localhost:8081/cust/index">首页</a>
+							</li>
+
+							<li>
+								<a href="http://localhost:8081/cust/order/list/">订单管理</a>
+							</li>
+							
+						</ul><!-- .breadcrumb -->
+
+					</div>
+
+					<div class="page-content">
+							<form name="formSelect" method="post" action="http://localhost:8081/cust/order/list/">
+							    <input type="text" style="width:100px;height:26px;" name="good_name" id="good_name" value="" placeholder="商品名称">
+							    &nbsp;
+							    <input type="text" style="width:100px;height:26px;" name="order_id" id="order_id" value="" placeholder="订单ID/编号">
+							    &nbsp;
+							    <input type="text" style="width:100px;height:26px;" name="buyer_name" id="buyer_name" value="" placeholder="购买人姓名">
+							    &nbsp;
+							    <input type="text" style="width:100px;height:26px;" name="buyer_phone" id="buyer_phone" value="" placeholder="购买人电话">
+							    &nbsp;
+							    <input type="text" style="width:100px;height:26px;" name="account" id="account" value="" placeholder="推荐人账号">
+							    &nbsp;
+							    <input type="datetime" style="width:145px;height:26px;" onfocus="WdatePicker({dateFmt:&#39;yyyy-MM-dd HH:mm&#39;})" name="start_date" id="start_date" value="" placeholder="开始时间">
+							      <font color="#666666">-</font>
+							    <input type="datetime" style="width:145px;height:26px;" onfocus="WdatePicker({dateFmt:&#39;yyyy-MM-dd HH:mm&#39;})" name="end_date" id="end_date" value="" placeholder="结束时间">
+							    &nbsp;
+							    <button class="btn btn-xs btn-primary" id="searchBtn" style="margin-bottom:5px;height:25px;" type="submit">
+									<i class="icon-search"></i>
+								    查 询
+								</button>
+							</form>
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+									
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="table-responsive">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+													   <th class="center">
+													      <label>
+															<input type="checkbox" id="ckall" name="ckall" class="ace">
+															<span class="lbl"></span>
+														  </label>
+ 														</th>
+														<th class="center">ID</th>
+														<th class="center">编 号</th>
+														<th class="left">操  作</th>
+														<th class="left">订单商品</th>
+														<th class="left">推荐人</th>
+														<th class="left">收货信息</th>
+														<th class="left">
+															<i class="icon-time bigger-110 hidden-480"></i>
+															下单时间
+														</th>
+														<th class="center">类型</th>
+														<th class="center">付款方式</th>
+														<th class="center">付款状态</th>
+														<th class="center">状态</th>
+
+													</tr>
+												</thead>
+
+												<tbody>
+												
+												
+										           
+													<tr>
+													    <td class="center">
+															<label>
+																<input type="checkbox" class="ace" name="tbck" id="tbck_1" value="n70zsqmx">
+																<span class="lbl"></span>
+															</label>
+														</td>
+
+														<td class="center" width="50px">
+															3353
+														</td>
+														
+														<td class="center" width="50px">
+															n70zsqmx
+														</td>
+														
+														<td class="left" width="103px">
+															<div class="visible-md visible-lg hidden-sm hidden-xs btn-group" style="align:center">
+																<button class="btn btn-xs btn-info" onclick="seeOrder(&#39;n70zsqmx&#39;);return false;">
+																	<i class=" icon-eye-open bigger-120"></i>
+																</button>
+																
+																<button class="btn btn-xs btn-primary" onclick="editOrder(&#39;n70zsqmx&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-edit bigger-120"></i>
+																</button>
+
+																<button class="btn btn-xs btn-danger" onclick="delOrder(&#39;n70zsqmx&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-trash bigger-120"></i>
+																</button>
+															</div>
+														</td>
+                                                        <td class="left">
+		                                                         名称:33<br>
+														    套餐:白色-35-买一送一-<br>
+														    数量:1<br>
+                                                        </td>
+                                                        <td class="left">qq123456</td>
+                                                        <td class="left">
+                                                                   姓名:ffff<br>
+															电话:18019362609<br>
+															地址:上海-县-崇明县 cccffffg<br>
+															IP:<font color="red"><a style="color:red;" href="http://www.ip138.com/ips138.asp?ip=211.161.247.25&amp;action=2" target="blank">211.161.247.25</a></font><br>
+															停留:<font color="red">00分24秒</font>
+                                                        </td>
+                                                        <td class="left">2016-05-21 02:16:42</td>
+                                                        <td class="left">
+                                                          
+														  <font color="blue">代客下单</font>
+														  
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																
+															     货到付款
+																
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																	
+																    <font color="red">未付款</font>
+																	
+                                                        </td>
+                                                        <td class="center">
+                                                           
+                                                              <span class="label label-primary arrowed-in-right arrowed">
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+	                                                            已下单
+	                                                          </span>
+                                                        </td>
+														
+													</tr>
+													
+													
+													<tr>
+													    <td class="center">
+															<label>
+																<input type="checkbox" class="ace" name="tbck" id="tbck_2" value="05av58qa">
+																<span class="lbl"></span>
+															</label>
+														</td>
+
+														<td class="center" width="50px">
+															3352
+														</td>
+														
+														<td class="center" width="50px">
+															05av58qa
+														</td>
+														
+														<td class="left" width="103px">
+															<div class="visible-md visible-lg hidden-sm hidden-xs btn-group" style="align:center">
+																<button class="btn btn-xs btn-info" onclick="seeOrder(&#39;05av58qa&#39;);return false;">
+																	<i class=" icon-eye-open bigger-120"></i>
+																</button>
+																
+																<button class="btn btn-xs btn-primary" onclick="editOrder(&#39;05av58qa&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-edit bigger-120"></i>
+																</button>
+
+																<button class="btn btn-xs btn-danger" onclick="delOrder(&#39;05av58qa&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-trash bigger-120"></i>
+																</button>
+															</div>
+														</td>
+                                                        <td class="left">
+		                                                         名称:444<br>
+														    套餐:白色-35-买一送一-<br>
+														    数量:1<br>
+                                                        </td>
+                                                        <td class="left">qq123456</td>
+                                                        <td class="left">
+                                                                   姓名:rtrt<br>
+															电话:18019362609<br>
+															地址:新疆维吾尔自治区-乌鲁木齐市-新市区 ererere<br>
+															IP:<font color="red"><a style="color:red;" href="http://www.ip138.com/ips138.asp?ip=211.161.247.133&amp;action=2" target="blank">211.161.247.133</a></font><br>
+															停留:<font color="red">00分39秒</font>
+                                                        </td>
+                                                        <td class="left">2016-05-20 04:22:47</td>
+                                                        <td class="left">
+                                                          
+														  <font color="blue">代客下单</font>
+														  
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																
+															     货到付款
+																
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																	
+																    <font color="red">未付款</font>
+																	
+                                                        </td>
+                                                        <td class="center">
+                                                           
+                                                              <span class="label label-primary arrowed-in-right arrowed">
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+	                                                            已下单
+	                                                          </span>
+                                                        </td>
+														
+													</tr>
+													
+													
+													<tr>
+													    <td class="center">
+															<label>
+																<input type="checkbox" class="ace" name="tbck" id="tbck_3" value="47rbdnjt">
+																<span class="lbl"></span>
+															</label>
+														</td>
+
+														<td class="center" width="50px">
+															3351
+														</td>
+														
+														<td class="center" width="50px">
+															47rbdnjt
+														</td>
+														
+														<td class="left" width="103px">
+															<div class="visible-md visible-lg hidden-sm hidden-xs btn-group" style="align:center">
+																<button class="btn btn-xs btn-info" onclick="seeOrder(&#39;47rbdnjt&#39;);return false;">
+																	<i class=" icon-eye-open bigger-120"></i>
+																</button>
+																
+																<button class="btn btn-xs btn-primary" onclick="editOrder(&#39;47rbdnjt&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-edit bigger-120"></i>
+																</button>
+
+																<button class="btn btn-xs btn-danger" onclick="delOrder(&#39;47rbdnjt&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-trash bigger-120"></i>
+																</button>
+															</div>
+														</td>
+                                                        <td class="left">
+		                                                         名称:444<br>
+														    套餐:白色-35-买一送一-<br>
+														    数量:1<br>
+                                                        </td>
+                                                        <td class="left">qq123456</td>
+                                                        <td class="left">
+                                                                   姓名:rtrt<br>
+															电话:18019362609<br>
+															地址:甘肃-兰州市-七里河区 rtttttttt<br>
+															IP:<font color="red"><a style="color:red;" href="http://www.ip138.com/ips138.asp?ip=211.161.247.133&amp;action=2" target="blank">211.161.247.133</a></font><br>
+															停留:<font color="red">00分21秒</font>
+                                                        </td>
+                                                        <td class="left">2016-05-20 04:22:03</td>
+                                                        <td class="left">
+                                                          
+														  <font color="blue">代客下单</font>
+														  
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+															     微信支付
+																
+																
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																	
+																    <font color="red">未付款</font>
+																	
+                                                        </td>
+                                                        <td class="center">
+                                                           
+                                                              <span class="label label-primary arrowed-in-right arrowed">
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+	                                                            已下单
+	                                                          </span>
+                                                        </td>
+														
+													</tr>
+													
+													
+													<tr>
+													    <td class="center">
+															<label>
+																<input type="checkbox" class="ace" name="tbck" id="tbck_4" value="mw0gvghu">
+																<span class="lbl"></span>
+															</label>
+														</td>
+
+														<td class="center" width="50px">
+															3350
+														</td>
+														
+														<td class="center" width="50px">
+															mw0gvghu
+														</td>
+														
+														<td class="left" width="103px">
+															<div class="visible-md visible-lg hidden-sm hidden-xs btn-group" style="align:center">
+																<button class="btn btn-xs btn-info" onclick="seeOrder(&#39;mw0gvghu&#39;);return false;">
+																	<i class=" icon-eye-open bigger-120"></i>
+																</button>
+																
+																<button class="btn btn-xs btn-primary" onclick="editOrder(&#39;mw0gvghu&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-edit bigger-120"></i>
+																</button>
+
+																<button class="btn btn-xs btn-danger" onclick="delOrder(&#39;mw0gvghu&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-trash bigger-120"></i>
+																</button>
+															</div>
+														</td>
+                                                        <td class="left">
+		                                                         名称:444<br>
+														    套餐:白色-35-买一送一-<br>
+														    数量:1<br>
+                                                        </td>
+                                                        <td class="left">qq123456</td>
+                                                        <td class="left">
+                                                                   姓名:rtrt<br>
+															电话:18019362609<br>
+															地址:河南-郑州市-二七区 rtttttttt<br>
+															IP:<font color="red"><a style="color:red;" href="http://www.ip138.com/ips138.asp?ip=211.161.247.133&amp;action=2" target="blank">211.161.247.133</a></font><br>
+															停留:<font color="red">02分39秒</font>
+                                                        </td>
+                                                        <td class="left">2016-05-20 04:21:36</td>
+                                                        <td class="left">
+                                                          
+														  <font color="blue">代客下单</font>
+														  
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																
+															     货到付款
+																
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																	
+																    <font color="red">未付款</font>
+																	
+                                                        </td>
+                                                        <td class="center">
+                                                           
+                                                              <span class="label label-primary arrowed-in-right arrowed">
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+	                                                            已下单
+	                                                          </span>
+                                                        </td>
+														
+													</tr>
+													
+													
+													<tr>
+													    <td class="center">
+															<label>
+																<input type="checkbox" class="ace" name="tbck" id="tbck_5" value="rrk8v3sx">
+																<span class="lbl"></span>
+															</label>
+														</td>
+
+														<td class="center" width="50px">
+															3349
+														</td>
+														
+														<td class="center" width="50px">
+															rrk8v3sx
+														</td>
+														
+														<td class="left" width="103px">
+															<div class="visible-md visible-lg hidden-sm hidden-xs btn-group" style="align:center">
+																<button class="btn btn-xs btn-info" onclick="seeOrder(&#39;rrk8v3sx&#39;);return false;">
+																	<i class=" icon-eye-open bigger-120"></i>
+																</button>
+																
+																<button class="btn btn-xs btn-primary" onclick="editOrder(&#39;rrk8v3sx&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-edit bigger-120"></i>
+																</button>
+
+																<button class="btn btn-xs btn-danger" onclick="delOrder(&#39;rrk8v3sx&#39;,&#39;1&#39;);return false;">
+																	<i class="icon-trash bigger-120"></i>
+																</button>
+															</div>
+														</td>
+                                                        <td class="left">
+		                                                         名称:444<br>
+														    套餐:白色-35-买一送一-<br>
+														    数量:1<br>
+                                                        </td>
+                                                        <td class="left">qq123456</td>
+                                                        <td class="left">
+                                                                   姓名:aaa<br>
+															电话:13758727986<br>
+															地址:浙江-温州市-龙湾区 aaasda<br>
+															IP:<font color="red"><a style="color:red;" href="http://www.ip138.com/ips138.asp?ip=122.228.132.213&amp;action=2" target="blank">122.228.132.213</a></font><br>
+															停留:<font color="red">00分42秒</font>
+                                                        </td>
+                                                        <td class="left">2016-05-20 04:19:26</td>
+                                                        <td class="left">
+                                                          
+														  <font color="blue">代客下单</font>
+														  
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+															     微信支付
+																
+																
+                                                        </td>
+                                                         <td class="left">
+                                                         	
+																	
+																    <font color="red">未付款</font>
+																	
+                                                        </td>
+                                                        <td class="center">
+                                                           
+                                                              <span class="label label-primary arrowed-in-right arrowed">
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+	                                                            已下单
+	                                                          </span>
+                                                        </td>
+														
+													</tr>
+													
+													
+													
+													
+														
+														
+													<tr>
+													<td colspan="12" style="background:#f5f5f5;">
+													    <button class="btn btn-sm btn-success" onclick="exportOrderAll();">
+															<i class="icon-save bigger-110"></i>
+															导出全部
+														</button>
+														<button class="btn btn-sm btn-pink" onclick="exportSelOrder();">
+															<i class="icon-save bigger-110"></i>
+															选择导出
+														</button>
+													
+												    
+													<!-- 
+													-->
+													
+													<font style="font-size:14px;">
+														&nbsp;&nbsp;共5条订单 
+														&nbsp;&nbsp;销售总额：￥<font style="font-size:14px;color:#c30">50.0</font>元 
+														&nbsp;&nbsp;成本：￥<font style="font-size:14px;color:#c30">0.0</font>元
+														&nbsp;&nbsp;预计分成：￥<font style="font-size:14px;color:#c30">0.0</font>元
+														&nbsp;&nbsp;预计盈利：￥<font style="font-size:14px;color:#c30">50.0</font>元
+												    </font>
+													</td>
+													</tr>
+												</tbody>
+												
+											</table>
+											
+											<div class="row">
+											
+											<div class="col-sm-6">
+												<div class="sender" id="sample-table-2_info">
+												  共 5 条记录，每页 5 条，共 1 页
+												</div>
+												</div>
+												<div class="col-sm-6">
+												<div class="dataTables_paginate paging_bootstrap sender">
+												   <ul class="pagination">
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+													   
+														
+															
+															   
+																	<li><a href="http://localhost:8081/cust/order/list#" class="active">1</a></li>
+															   
+															   
+															
+														
+														
+									    		        
+														
+														
+													
+													
+											     </ul>
+													
+													
+												</div>
+												</div>
+												
+											</div>
+											
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+			<a href="http://localhost:8081/cust/order/list#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- menu start-->
+        
+
+<!--[if !IE]> -->
+<script src="./static/jquery-2.0.3.min.js"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script src="/customer/assets/js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+<!--[if !IE]> -->
+<script type="text/javascript">
+window.jQuery || document.write("<script src='/customer/assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");
+</script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='/customer/assets/js/jquery-1.10.2.min.js'>"+"<"+"script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+if("ontouchend" in document) document.write("<script src='/customer/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+</script>
+<script src="./static/bootstrap.min.js"></script>
+<script src="./static/typeahead-bs2.min.js"></script>
+<!-- page specific plugin scripts -->
+<!--[if lte IE 8]>
+<script src="/customer/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="./static/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="./static/jquery.ui.touch-punch.min.js"></script>
+<script src="./static/bootbox.min.js"></script>
+<script src="./static/jquery.gritter.min.js"></script>
+
+<!-- ace scripts -->
+<script src="./static/ace-elements.min.js"></script>
+<script src="./static/ace.min.js"></script>
+
+<script type="text/javascript" src="./static/WdatePicker.js"></script>
+<script type="text/javascript" src="./static/lhgdialog.min.js"></script>
+
+<script type="text/javascript">
+jQuery(function($) {
+	$('table th input:checkbox').on('click' , function(){
+		var that = this;
+		$(this).closest('table').find('tr > td:first-child input:checkbox')
+		.each(function(){
+			if(!this.disabled){
+			   this.checked = that.checked;
+			   $(this).closest('tr').toggleClass('selected');
+			}
+		});
+	});
+})
+</script>
+
+<script type="text/javascript">
+ (function(config){
+    config['extendDrag'] = true; // 注意，此配置参数只能在这里使用全局配置，在调用窗口的传参数使用无效
+    config['lock'] = true;
+    config['fixed'] = true;
+    config['okVal'] = '确定';
+    config['cancelVal'] = '取消';
+ })($.dialog.setting);
+	
+	// 如果只设置一个或少量全局配置也可这样：
+	$.dialog.setting.extendDrag = true;
+
+</script>
+        <!-- menu over-->
+
+
+   <script type="text/javascript">
+       function goSubmit(){
+           var good_name = $("#good_name").val();
+           var buyer_name = $("#buyer_name").val();
+           var buyer_phone = $("#buyer_phone").val();
+           var account = $("#account").val();
+           var start_date = $("#start_date").val();
+           var end_date = $("#end_date").val();
+           var order_id = $("#order_id").val();
+           
+           document.formSelect.action="cust/order/list?good_name=" + good_name 
+                                        +"&buyer_phone=" + buyer_phone
+                                        +"&order_id=" + order_id
+                                        +"&start_date=" + start_date
+                                        +"&end_date=" + end_date
+                                        +"&state_id="
+                                        +"&account=" + account
+                                        +"&buyer_name=" + buyer_name;
+			document.formSelect.submit();
+       }
+   
+       function seeOrder(id){
+	      window.location.href = "/order/process?order_id="+id;
+	   }
+	   
+	   function exportOrder(){
+		 window.location.href = "/cust/export/2";
+	   }
+	   
+	   function exportSelOrder(){
+	      var arr = getAllCheckVal("tbck");
+		  if(arr == null || arr.length==0){
+			  $.dialog.alert("请先选择要导出的订单！");
+			  return;
+		  }
+		  var oid=Arr2String(arr);
+		 window.location.href = "/cust/export/?tempid=1&order_id="+oid
+	   }
+	   
+	   function exportOrderAll(){
+		 window.location.href = "/cust/export/?tempid=1";
+	   }
+	   
+	   function exportAllOrder(){
+		     var url = "/cust/export/1";
+		     var msg = "您确定要导出选择的订单吗?"
+		     var arr = getAllCheckVal("tbck");
+		      if(arr == null || arr.length==0){
+				  msg = "<font color=red>你确定要导出全部已下单的订单吗？</font>"
+			   }else{
+			      url = url+"?order_id="+Arr2String(arr);
+			   }
+		     $.dialog.confirm(msg, function(){
+			      window.location.href = url;
+			 });
+	   }
+	   
+	   function signOrder(){
+		 window.location.href = "/cust/order/bsign";
+	   }
+	   
+	   function importOrder(){
+		  window.location.href =  "/cust/order/import";
+	   }
+	   
+	   function exportCSelOrder(){
+	      var arr = getAllCheckVal("tbck");
+		  if(arr == null || arr.length==0){
+			  $.dialog.alert("请选择要导出COD的订单！");
+			  return;
+		   }
+		   var oid=Arr2String(arr);
+		   window.location.href = "/cust/export/2?tempid=2&order_id="+oid
+	   
+	   }
+	   
+	   function editOrder(id,sid){
+	      /*if(sid!=1){
+	         $.dialog.alert("对不起，进入流程的订单不能修改！");
+			 return;
+	      }*/
+	      window.location.href = "/cust/order/modify?order_id="+id;
+	   }
+	   
+	   //批量审核
+	   function batchCheck(){
+	      var arr = getAllCheckVal("tbck");
+		  if(arr == null || arr.length==0){
+			  $.dialog.alert("请先选择要操作的数据！");
+			  return;
+		  }else{
+		      var ids = Arr2String(arr);
+			  $.dialog({ 
+		        title:'批量审核',
+			    id: 'batch_check', 
+			    width:380,
+			    height:170,
+			    content: "url:/cust/order/bchange?order_id="+ids, 
+			    lock:false
+			  });
+		  }
+	   
+	   }
+	   
+	   //批量删除订单
+	   function batchDel(){
+	        var arr = getAllCheckVal("tbck");
+			if(arr == null || arr.length==0){
+				$.dialog.alert("请先选择要操作的数据！");
+				return;
+			}
+			
+			var ids = Arr2String(arr);
+			delOrder(ids,'1');
+	   }
+
+	   function delOrder(id,sid){
+			if(id == null || id==''){
+				$.dialog.alert("请先选择要删除的数据！");
+				return;
+			}
+			if(sid!=1 && sid!=3){
+				$.dialog.alert("对不起，订单进入审核流程不能删除！");
+				return;
+			}
+			
+			
+			$.dialog.confirm('<font color=red>你确定要删除订单数据吗？</font>', function(){
+	            $.dialog.tips('数据处理中...',600,'loading.gif');
+			    var param = "order_id="+id+"&now="+new Date().getTime();
+	            jQuery.ajax({
+					   type: "post",
+					   cache : false,
+					   url: "/cust/order/delete",
+					   data: param,
+					   success: function(result){
+				            if(result=='true'){
+				                $.dialog.alert("恭喜你，删除订单信息成功！");
+				                setTimeout('reloadPage();',500);
+				            }
+				            if(result=='false'){
+				                $.dialog.alert("对不起，删除订单信息失败！");
+				            }
+					   }
+				});
+            
+		    });
+      }
+   
+   </script>
+	
+
+</div></div><div id="ldg_dragmask" style="display: none; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; cursor: move; opacity: 0; background: rgb(255, 255, 255); pointer-events: none;"></div><div><div id="maskLevel" style="position:absolute;top:0;left:0;display:none;text-align:center;z-index:10000;"></div><div id="ym-window" style="position:absolute;z-index:10001;display:none"><div class="ym-tl" id="ym-tl"><div class="ym-tr"><div class="ym-tc" style="cursor:move;"><div class="ym-header-text"></div><div class="ym-header-tools"></div></div></div></div><div class="ym-ml" id="ym-ml"><div class="ym-mr"><div class="ym-mc"><div class="ym-body"></div></div></div></div><div class="ym-ml" id="ym-btnl"><div class="ym-mr"><div class="ym-btn"></div></div></div><div class="ym-bl" id="ym-bl"><div class="ym-br"><div class="ym-bc"></div></div></div></div></div></body></html>

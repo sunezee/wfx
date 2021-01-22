@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="winterholidayhomework:war">
+    <output-path>$PROJECT_DIR$/winterholidayhomework/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>winterholidayhomework</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="winterholidayhomework.war">
+      <element id="artifact" artifact-name="winterholidayhomework:war exploded" />
+    </root>
+  </artifact>
+</component>

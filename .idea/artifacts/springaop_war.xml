@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springaop:war">
+    <output-path>$PROJECT_DIR$/springaop/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springaop</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="springaop.war">
+      <element id="artifact" artifact-name="springaop:war exploded" />
+    </root>
+  </artifact>
+</component>

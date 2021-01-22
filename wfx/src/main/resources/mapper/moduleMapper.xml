@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blb.wfx.dao.SysModuleMapper">
+    <resultMap id="moduleMap" type="ModuleTreeNodes">
+        <result property="text" column="p_name"/>
+        <result property="href" column="p_url"/>
+        <result property="moduleId" column="module_id"/>
+<!--        <result property="moduleCode" column="module_code"/>-->
+        <collection property="nodes" javaType="java.util.List" ofType="ModuleTreeNodes">
+            <result property="text" column="c_name"/>
+            <result property="href" column="c_url"/>
+            <result property="checked" column="checked"/>
+            <result property="moduleId" column="module_code"/>
+<!--            <result property="moduleCode" column="module_code"/>-->
+            <collection property="nodes" javaType="java.util.List" ofType="ModuleTreeNodes">
+                <result property="text" column="d_name"/>
+                <result property="href" column="d_url"/>
+                <!--            <result property="moduleCode" column="module_code"/>-->
+            </collection>
+        </collection>
+    </resultMap>
+    <resultMap id="moduleMap2" type="ModuleTreeNodes">
+        <result property="text" column="p_name"/>
+        <result property="href" column="p_url"/>
+        <result property="moduleId" column="module_id"/>
+        <!--        <result property="moduleCode" column="module_code"/>-->
+        <collection property="nodes" javaType="java.util.List" ofType="ModuleTreeNodes">
+            <result property="text" column="c_name"/>
+            <result property="href" column="c_url"/>
+            <result property="checked" column="checked"/>
+            <result property="moduleId" column="module_code"/>
+        </collection>
+    </resultMap>
+    <select id="selectModulesByAccount" parameterType="java.lang.String" resultType="com.blb.wfx.entity.SysModule">
+        SELECT m.module_id,module_code,module_name,link_url,module_order,parent_module,module_desc,expanded,leaf
+        from sys_role r
+        join sys_module m
+        join sys_role_fun rm
+        on r.role_code=rm.role_id
+        and m.module_code=rm.module_id
+        and role_name
+        in(SELECT role_name from user_info u join sys_role r join  sys_user_role ur
+        on u.user_id=ur.user_id and r.role_code=ur.role_id and
+        u.account=#{account}) order by m.module_code asc
+    </select>
+    <select id="selectModuleTreeNodesByAccount" parameterType="java.lang.String" resultMap="moduleMap2">
+        SELECT pm.module_name p_name,pm.link_url p_url,cm.module_name c_name,cm.link_url c_url
+        from sys_role r
+        join sys_module pm
+        join sys_role_fun rm
+        join user_info u
+        join sys_user_role ur
+        join sys_module cm
+        on u.user_id=ur.user_id
+        and r.role_code=ur.role_id
+        and r.role_code=rm.role_id
+        and pm.module_code=rm.module_id
+        and pm.module_code=cm.parent_module
+        and pm.parent_module="0101"
+        and u.account=#{account}
+        order by cm.module_code asc
+    </select>
+    <select id="selectModuleTreeNodesByRoleName" parameterType="java.lang.String" resultMap="moduleMap">
+        select DISTINCT  p.module_name p_name,p.link_url p_url,c.module_name c_name,c.link_url c_url,rm.module_id,c.module_code,
+            case
+                when
+                    exists(
+                        select * from (
+                            select c.module_name c_name1
+                            from sys_role r
+                            join sys_role_fun rm
+                            join sys_module p
+                            join sys_module c
+                            on  c.module_code = rm.module_id
+                            and r.role_code = rm.role_id
+                            and p.module_code = c.parent_module
+                            and p.parent_module = '0101'
+                            and r.role_name =#{roleName}
+                        ) role_module
+                        where role_module.c_name1 = c.module_name
+                    )
+                then 'true'
+                else 'false'
+            end checked
+            from sys_role r
+            join sys_role_fun rm
+            join sys_module p
+            join sys_module c
+            on  p.module_code = rm.module_id
+            and r.role_code = rm.role_id
+            and p.module_code = c.parent_module
+            and p.parent_module = '0101'
+            order by c.module_code asc
+    </select>
+    <select id="selectThree" resultMap="moduleMap">
+        SELECT pm.module_name p_name,pm.link_url p_url,cm.module_name c_name,cm.link_url c_url,dm.module_name d_name,dm.link_url d_url
+        from sys_role r
+        join sys_module pm
+        join sys_role_fun rm
+        join user_info u
+        join sys_user_role ur
+        join sys_module cm
+        join sys_module dm
+        on u.user_id=ur.user_id
+        and r.role_code=ur.role_id
+        and r.role_code=rm.role_id
+        and pm.module_code=rm.module_id
+        and pm.module_code=cm.parent_module
+        and pm.parent_module="01"
+        and cm.module_code=dm.parent_module
+        and cm.parent_module="0101"
+        and u.account="admin" order by dm.module_code asc;
+    </select>
+    <select id="selectModuleTreeNodesByModuleName" parameterType="java.lang.String" resultMap="moduleMap2">
+        SELECT pm.module_name p_name,pm.link_url p_url,cm.module_name c_name,cm.link_url c_url
+                from sys_module pm
+                join sys_module cm
+                on pm.module_code=cm.parent_module
+                and pm.module_name=#{moduleName}
+    </select>
+</mapper>

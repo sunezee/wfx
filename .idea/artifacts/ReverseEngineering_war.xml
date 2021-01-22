@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ReverseEngineering:war">
+    <output-path>$PROJECT_DIR$/ReverseEngineering/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ReverseEngineering</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ReverseEngineering.war">
+      <element id="artifact" artifact-name="ReverseEngineering:war exploded" />
+    </root>
+  </artifact>
+</component>

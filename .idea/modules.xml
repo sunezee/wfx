@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lambda_demo/Lambda_demo.iml" filepath="$PROJECT_DIR$/Lambda_demo/Lambda_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lambda_demo2/Lambda_demo2.iml" filepath="$PROJECT_DIR$/Lambda_demo2/Lambda_demo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReverseEngineering/ReverseEngineering.iml" filepath="$PROJECT_DIR$/ReverseEngineering/ReverseEngineering.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookmall/bookmall.iml" filepath="$PROJECT_DIR$/bookmall/bookmall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fresh_admin/fresh_admin.iml" filepath="$PROJECT_DIR$/fresh_admin/fresh_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fresh_front/fresh_front.iml" filepath="$PROJECT_DIR$/fresh_front/fresh_front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goods_service/goods_service.iml" filepath="$PROJECT_DIR$/goods_service/goods_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hua/hua.iml" filepath="$PROJECT_DIR$/hua/hua.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hua_admin/hua_admin.iml" filepath="$PROJECT_DIR$/hua_admin/hua_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java_study.iml" filepath="$PROJECT_DIR$/.idea/java_study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mitaole/mitaole.iml" filepath="$PROJECT_DIR$/mitaole/mitaole.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mitaole_admin/mitaole_admin.iml" filepath="$PROJECT_DIR$/mitaole_admin/mitaole_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mitaolefront/mitaolefront.iml" filepath="$PROJECT_DIR$/mitaolefront/mitaolefront.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pa_chong/pa_chong.iml" filepath="$PROJECT_DIR$/pa_chong/pa_chong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pachong/pachong.iml" filepath="$PROJECT_DIR$/pachong/pachong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/person/person.iml" filepath="$PROJECT_DIR$/person/person.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro_demo/shiro_demo.iml" filepath="$PROJECT_DIR$/shiro_demo/shiro_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springaop/springaop.iml" filepath="$PROJECT_DIR$/springaop/springaop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootest/springbootest.iml" filepath="$PROJECT_DIR$/springbootest/springbootest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc/springmvc.iml" filepath="$PROJECT_DIR$/springmvc/springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm_demo/ssm_demo.iml" filepath="$PROJECT_DIR$/ssm_demo/ssm_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx/wfx.iml" filepath="$PROJECT_DIR$/wfx/wfx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_config/wfx_config.iml" filepath="$PROJECT_DIR$/wfx_config/wfx_config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_cust/wfx_cust.iml" filepath="$PROJECT_DIR$/wfx_cust/wfx_cust.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_gateway/wfx_gateway.iml" filepath="$PROJECT_DIR$/wfx_gateway/wfx_gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_goods/wfx_goods.iml" filepath="$PROJECT_DIR$/wfx_goods/wfx_goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_login/wfx_login.iml" filepath="$PROJECT_DIR$/wfx_login/wfx_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_mber/wfx_mber.iml" filepath="$PROJECT_DIR$/wfx_mber/wfx_mber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wfx_wxpay/wfx_wxpay.iml" filepath="$PROJECT_DIR$/wfx_wxpay/wfx_wxpay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/winterholidayhomework/winterholidayhomework.iml" filepath="$PROJECT_DIR$/winterholidayhomework/winterholidayhomework.iml" />
+    </modules>
+  </component>
+</project>

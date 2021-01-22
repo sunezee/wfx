@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>付款</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <!--[if lte IE 8]//如果需要支持低版本的IE8及以下>
+    <script  type="text/javascript" src="https://cdn.goeasy.io/json2.js"></script>
+    <![endif]-->
+
+<!--    <script type="text/javascript" src="https://cdn.goeasy.io/goeasy-1.0.6.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        var goEasy = new GoEasy({-->
+<!--            host:'hangzhou.goeasy.io', //应用所在的区域地址: 【hangzhou.goeasy.io |singapore.goeasy.io】-->
+<!--            appkey: "BC-35b2f3f55f644e178eb49c6eda5b5c8b", //替换为您的应用appkey-->
+<!--        });-->
+<!--        //GoEasy-OTP可以对appkey进行有效保护,详情请参考​ ​-->
+<!--        goEasy.subscribe({-->
+<!--            channel: "wfx", //替换为您自己的channel-->
+<!--            onMessage: function (message) {-->
+<!--                console.log("Channel:" + message.channel + " content:" + message.content);-->
+<!--                if(message.content=="OK"){-->
+<!--                    location.href="/order/orderList?pageNo=1";-->
+<!--                }-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+
+</head>
+<body>
+<h3>扫描二维码进行支付</h3>
+<img src="/order/payCode">
+<p id="message"></p>
+
+</body>
+<script type="text/javascript">
+    var websocket = null;
+
+    //判断当前浏览器是否支持WebSocket
+    if('WebSocket' in window){
+        websocket = new WebSocket("ws://localhost:8082/wfx_ws");
+    }
+    else{
+        alert('Not support websocket')
+    }
+
+    //连接发生错误的回调方法
+    websocket.onerror = function(){
+        setMessageInnerHTML("error");
+    };
+
+    //连接成功建立的回调方法
+    websocket.onopen = function(event){
+        setMessageInnerHTML("open");
+    }
+
+    //接收到消息的回调方法
+    websocket.onmessage = function(event){
+        setMessageInnerHTML(event.data);
+        if(event.data == "ok"){
+            location.href = "/order/orderList?pageNo=1";
+        }
+    }
+
+    //连接关闭的回调方法
+    websocket.onclose = function(){
+        setMessageInnerHTML("close");
+    }
+
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML){
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+</script>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8081/goods/list -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>自媒体盈利平台</title>
+    <meta property="qc:admins" content="4441727777670263757">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
+    <link rel="stylesheet" type="text/css" href="./static/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/style-metronic.css">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+    <!--[if IE 8]>
+    <script type="text/javascript" src="/wxb/script/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="admin" style="">
+<!-- top start-->
+
+
+<div class="header signup-header">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://localhost:8081/user/index">
+                <img src="./static/logo.png" id="logoimg" alt="logo">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="menu-user dropdown">
+                    <span class="sep"></span>
+                    <span class="user-btn" id="dropdownMenu1" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                      jack520007
+                    </span>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu user-box" role="menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="http://localhost:8081/user/setting"><i class="fa fa-user"></i> 我的资料 </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8081/user/logout"><i class="fa fa-power-off"></i> 注销用户 </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- top over-->
+<div class="page-container" style="min-height: 309px;">
+    <div class="container">
+        <div class="page-border">
+            <div class="row">
+                <div class="col-xs-2 layout-left">
+                    <!-- menu start-->
+
+                    <div class="menu_box" id="menuBar">
+                        <dl class="menu ">
+                            <dt class="menu_title clickable  ">
+                                <a href="http://localhost:8082/mberpage/index.html">
+                                    <i class="icon_menu fa fa-user"></i>用户中心
+                                </a>
+                            </dt>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable selected">
+                                <a href="http://localhost:8082/good/goodList?pageNo=1">
+                                    <i class="icon_menu fa fa-cubes"></i>产品及文案
+                                </a>
+                            </dt>
+
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable ">
+                                <a href="http://localhost:8081/zjy/index">
+                                    <i class="icon_menu fa fa-cubes"></i>特色推广
+                                </a>
+                            </dt>
+
+                        </dl>
+                        <dl class="menu">
+                            <dt class="menu_title"><i class="icon_menu fa fa-file-text"></i>订单与结算</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8082/order/orderList?pageNo=1">我推广的订单</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/payoff/list">结算与返款</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/payoff/log">订单结算流水</a>
+                            </dd>
+                        </dl>
+
+
+                        <dl class="menu ">
+                            <dt class="menu_title"><i class="icon_menu fa fa-pie-chart"></i>订单统计</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/report/goods">商品推广统计</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/report/channel">渠道推广统计</a>
+                            </dd>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title"><i class="icon_menu fa fa-cog"></i>资料设置</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/channel/list">渠道设置</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/user/setting">基本信息</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/user/reset">修改密码</a>
+                            </dd>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable">
+                                <a href="http://localhost:8081/user/logout">
+                                    <i class="icon_menu fa fa-power-off"></i>退出登录
+                                </a>
+                            </dt>
+                        </dl>
+                    </div>
+                    <!-- menu over-->
+                </div>
+
+                <div class="col-xs-10 layout-right min-height-1">
+                    <style>
+                        .goodsList_table .cover {
+                            width: 150px;
+                            margin-top: 3px;
+                        }
+
+                        .goodsList_table .goods-link {
+                            font-size: 16px;
+                            padding-bottom: 10px;
+                            display: inline-block;
+                        }
+
+                        .goodsList_table em {
+                            font-style: normal;
+                            color: #666666;
+                            font-weight: bold;
+                        }
+
+                        .tag-type1.tag-type1-4:hover {
+                            color: #f49800;
+                            border-color: #f49800;
+                        }
+
+                        .tag-type1.tag-type1-4.active {
+                            color: #fff;
+                            background-color: #f49800;
+                            border-color: #f49800;
+                        }
+
+                        .tag-type1.tag-type1-3:hover {
+                            color: #e72980;
+                            border-color: #e72980;
+                        }
+
+                        .tag-type1.tag-type1-3.active {
+                            color: #fff;
+                            background-color: #e72980;
+                            border-color: #e72980;
+                        }
+
+                        .tag-type1.tag-type1-2:hover {
+                            color: #7dbe26;
+                            border-color: #7dbe26;
+                        }
+
+                        .tag-type1.tag-type1-2.active {
+                            color: #fff;
+                            background-color: #7dbe26;
+                            border-color: #7dbe26;
+                        }
+
+                        .tag-type1.tag-type1-1:hover {
+                            color: #dd0000;
+                            border-color: #dd0000;
+                        }
+
+                        .tag-type1.tag-type1-1.active {
+                            color: #fff;
+                            background-color: #dd0000;
+                            border-color: #dd0000;
+                        }
+                    </style>
+                    <h2 class="page-title"><em>产品及文案</em></h2>
+                    <div class="top-area clearfix">
+                        <form id="listForm" action="http://localhost:8081/goods/list" method="post">
+                            <select class="select-style-1" name="customer_id">
+                                <option value="">选择商户</option>
+                                <option th:each="cust:${custs}" th:value="${cust.customerId}+',A'" th:text="${cust.customerName}">qq123456</option>
+
+
+                            </select>
+                            <select class="select-style-1" name="type_id">
+                                <option value="">商品分类</option>
+                                <option th:each="goodtype:${goodtypes}" th:value="${goodtype.typeId}+',B'" th:text="${goodtype.typeName}">保健品</option>
+                            </select>
+                            <select class="select-style-1" style="width:140px" name="sort_type">
+                                <option value="toped,C">按商品置顶排序</option>
+                                <option value="recommed,C">按商品推荐排序</option>
+                                <option value="level,C">按商户等级排序</option>
+                            </select>
+                            <!-- div class="input-group" id="js-sel-tag" style="width: 440px;">
+                                <input id="tag_id" name="tag_id" value="" type="hidden">
+                                <span class="tag-type1 tag-type1-all active">全部 </span>
+
+
+                                       <span class="tag-type1 tag-type1-1 " data-id="1">热销爆款</span>
+
+                                       <span class="tag-type1 tag-type1-2 " data-id="2">女粉推荐</span>
+
+                                       <span class="tag-type1 tag-type1-3 " data-id="3">男粉推荐</span>
+
+                                       <span class="tag-type1 tag-type1-4 " data-id="4">人气新品</span>
+
+                                       <span class="tag-type1 tag-type1-5 " data-id="5">男女通用</span>
+
+
+                            </div>-->
+                            <div class="pull-right search_div">
+                                <div class="input-group">
+                                    <input type="text" name="alisaname" value="" id="alisaname" class="form-control">
+                                    <span class="input-group-btn">
+                    <button class="btn red search_btn" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="margin-top-10">
+                        <table id="goodsList" class="table table-advance table-cps table-hover goodsList_table">
+                            <thead>
+                            <tr>
+                                <th width="170">商品图片</th>
+                                <th>商品名称</th>
+                                <th class="text-center" width="180">价格/分成</th>
+                                <!-- <th class="text-left" width="120">分成</th>-->
+                                <th class="text-center" width="140">推广详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="good:${goods.records}">
+                                <td style="vertical-align:top;">
+                                    <img class="cover" th:src="${good.goodPic}" alt="">
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <a class="goods-link" th:href="@{http://localhost:8082/good/getOne/(goodId=${good.goodId})}" th:text="${good.goodName}">444</a>
+                                    <div class="goods-tags-wrap">
+                                        <span th:each="tag:${good.tagList}">
+                                            <span  th:if="${tag=='1'}" class="label label-热销爆款" style="background-color:red;">热销爆款</span>
+                                            <span  th:if="${tag=='2'}" class="label label-女粉推荐" style="background-color:#e72980;">女粉推荐</span>
+                                            <span  th:if="${tag=='3'}" class="label label-男粉推荐" style="background-color:#f49800;">男粉推荐</span>
+                                            <span  th:if="${tag=='4'}" class="label label-人气新品" style="background-color:green;">人气新品</span>
+                                            <span  th:if="${tag=='5'}" class="label label-男女通用" style="background-color:blue;">男女通用</span>
+                                        </span>
+                                    </div>
+                                    <p><em>推广说明：</em><span th:text="${good.promoteDesc}"></span></p>
+                                    <p th:each="cust:${custs}" th:if="${good.customerId==cust.customerId}"><em>商户名称：</em><span th:text="${cust.customerName}"></span></p>
+                                    <p  th:each="cust:${custs}" th:if="${good.customerId==cust.customerId}">
+                                        <em>商户等级：</em>
+                                        <span th:if="${cust.level==0}">非认证商户</span>
+                                        <span th:if="${cust.level==1}">认证商户V1</span>
+                                        <span th:if="${cust.level==2}">认证商户V2</span>
+                                        <span th:if="${cust.level==3}">认证商户V3</span>
+                                        <span th:if="${cust.level==4}">认证商户V4</span>
+                                    </p>
+                                </td>
+                                <td class="text-center">
+                                    <p th:each="sku2:${good.sku2List}"><span class="label" style="background-color:#f49800;">
+                                        <span th:text="${sku2.skuName}" ></span>：￥单价<span th:text="${sku2.skuPrice}"></span>/提成<span th:text="${sku2.skuPmoney}"></span></span></p>
+                                </td>
+                                <!-- <td class="text-left">
+
+                                </td>-->
+                                <td class="text-center"><a class="btn btn-yellow"
+                                                           href="http://localhost:8081/goods/index/pb1n3rya">★立即推广赚钱</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--翻页-->
+                        <div class="grid-pagination-wrap text-center clearfix show">
+                            <div class="jogger">
+                                <a href="javascript:void(0);" th:each="i:${goods.pages}" th:text="${i}"></a>
+                                <a href="javascript:void(0);">共<span th:text="${goods.pages}"></span>页</a>
+                                <a href="javascript:void(0);"><span th:text="${goods.total}"></span>条记录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start-->
+
+
+<div class="right-service closed">
+    <img class="RS-img" src="./static/wxb.png">
+    <div class="RS-wrap">
+        <div class="RS-title">@在线客服<span class="RS-title-right-btn"><i class="fa fa-angle-right"></i></span></div>
+        <div class="RS-title-for-closed"><i class="fa fa-ellipsis-h"></i><br>在线客服</div>
+        <ul class="RS-ul">
+            <li class="RS-i1"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">合作咨询<br><span>小强</span></a>
+            </li>
+            <li class="RS-i2"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">异常订单<br><span>小薇</span></a>
+            </li>
+            <li class="RS-i3"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">财务返款<br><span>小丽</span></a>
+            </li>
+        </ul>
+        <div class="RS-bottom">400-123-1234</div>
+    </div>
+</div>
+
+<div class="copyright">
+    <div class="container text-center">
+        <p>
+            <span class="copyright-icon copyright-icon-1"><img src="./static/copyright-pic-1.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-2"><img src="./static/copyright-pic-2.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-3"><img src="./static/copyright-pic-3.jpg" width="117"></span>
+            <span class="copyright-icon copyright-icon-4"><img src="./static/copyright-pic-4.jpg" width="109"></span>
+        </p>
+        <p>
+            Copyright ? 2015
+        </p>
+        <p>
+            客服电话：400-123-1234
+        </p>
+
+    </div>
+</div>
+<div id="topcontrol" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer; " title="返回顶部">
+    <div class="back-to-top"></div>
+</div>
+
+<!-- cnzz 统计开始
+<div style='display:none'>
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_307679'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D307679' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+ cnzz 统计结束-->
+<!-- footer over-->
+
+
+<script type="text/javascript" src="./static/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./static/bootstrap.min.js"></script>
+<script type="text/javascript" src="./static/underscore-min.js"></script>
+<script type="text/javascript" src="./static/back-to-top.js"></script>
+<script type="text/javascript" src="./static/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="./static/win.js"></script>
+<script type="text/javascript" src="./static/app.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#listForm .select-style-1').change(function () {
+            // $('.search_btn').click();
+            console.log($(this).val());
+            var type=$(this).val();
+            location.href="http://localhost:8082/good/goodList?pageNo=1&type="+type;
+        });
+        $('#js-sel-tag .tag-type1').click(function () {
+            var tagId = $(this).attr('data-id');
+            $(this).addClass('active').siblings().removeClass('active');
+            $('#tag_id').val(tagId);
+            $('.search_btn').click();
+        })
+    });
+
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+    });
+</script>
+
+<div id="topcontrol" title="返回顶部" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer;">
+    <div class="back-to-top"></div>
+</div>
+</body>
+</html>

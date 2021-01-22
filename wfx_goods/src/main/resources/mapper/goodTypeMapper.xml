@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blb.wfx_goods.dao.WxbGoodTypeMapper">
+    <resultMap id="moduleMap" type="ModuleTreeNodes">
+        <result property="text" column="p_name"/>
+        <result property="href" column="p_url"/>
+        <result property="moduleId" column="module_id"/>
+        <!--        <result property="moduleCode" column="module_code"/>-->
+        <collection property="nodes" javaType="java.util.List" ofType="ModuleTreeNodes">
+            <result property="text" column="c_name"/>
+            <result property="href" column="c_url"/>
+            <result property="checked" column="checked"/>
+            <result property="moduleId" column="module_code"/>
+        </collection>
+    </resultMap>
+    <select id="selectGoodType" resultMap="moduleMap">
+        SELECT pm.type_name p_name,pm.alisa_code p_url,cm.type_name c_name,cm.alisa_code c_url
+        from wxb_good_type cm
+        join wxb_good_type pm
+    </select>
+</mapper>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--xmlns:th="http://www.thymeleaf.org"-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<!--    <base th:href="${#request.getContextPath()}+'/'">-->
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../css/index/one.css" rel="stylesheet">
+    <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-treeview.js"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script src="../js/vue.js"></script>
+    <title>菜单信息管理</title>
+    <style>
+        body{
+            background:#DEDEDE ;
+        }
+        #do{
+            display: flex;
+            width:1025px;
+            border-top: 1px solid gainsboro;
+            boeder-bottom: 2px solid black;
+            margin-bottom: 15px;
+            /*border-radius: 5px;*/
+            padding: 5px;
+            background: #F9F9F9;
+        }
+        #do>button{
+            margin-left: 5px;
+        }
+        #do .col-lg-6{
+            margin-left: 405px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="rbody">
+    <h5><span class="glyphicon glyphicon-home" aria-hidden="true"></span>菜单信息管理 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></h5>
+    <div id="do">
+        <button class="btn btn-default" id="addRole" onclick="openModule()">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新建
+        </button>
+        <button class="btn btn-default" id="removeRole" onclick="removeModule()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+        </button>
+        <button class="btn btn-default" id="updateRole" onclick="update(1)">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+        </button>
+        <div class="col-lg-6">
+            <div class="input-group">
+                  <input id="search" type="text" class="form-control" placeholder="请输入关键字..." required>
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" onclick="search()">
+                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div>
+        <table class="table table-striped table-hover">
+        </table>
+    <div id="rolePage" style="margin: auto">
+
+    </div>
+</div>
+<!-- Modal 权限添加模块 -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="form1" action="javascript:void(0)">
+            <div class="modal-body">
+                <input class="form-control" id="moduleId" type="hidden">
+                <input class="form-control" id="moduleCode" type="hidden">
+                <label>菜单名称：</label><input class="form-control" id="moduleName" name="moduleName" type="text"  placeholder="请输入菜单名称" required><br>
+                <label>上级菜单：</label>
+<!--                <hr>-->
+                <div style="display: flex">
+                    <input style="width: 528px" id="parentModule" type="text" class="form-control" placeholder="请选择上级菜单" required readonly>
+                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button" id="pm">
+                             <span id="icon" class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+                <div style="display: none" id="treeview3">
+
+                </div>
+                <hr>
+                <label>节点类型：</label><select class="form-control" id="leaf" name="leaf">
+                                            <option value="0">树枝节点</option>
+                                            <option value="1">叶子节点</option>
+                                        </select><br>
+                <label>是否展开：</label><select class="form-control" id="expanded" name="expanded">
+                                            <option value="1">展开</option>
+                                            <option value="0">收缩</option>
+                                        </select><br>
+                <label>请求地址：</label><input class="form-control" id="linkUrl" name="linkUrl" type="text" placeholder="请输入请求地址" required/><br>
+                <label>排序编号：</label><input class="form-control" id="moduleOrder" name="moduleOrder" type="text" placeholder="请输入排序编号" required/><br>
+                <label>备注信息：</label><input class="form-control" id="moduleDesc" name="moduleDesc" type="text" placeholder="请输入备注信息" required/><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="addOrUpdate()">提交</button>
+                <button type="button" class="btn btn-default closemodule" data-dismiss="modal">关闭</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function openModule() {
+        $("#myModal2").modal("show");
+    }
+    //模糊搜索
+    function search() {
+        var s=$("#search").val();
+        if(s=="1"){
+            alert("请输入合适的内容")
+        }else{
+            page(1,s);
+            $("#rolePage").css("display","none");
+        }
+    }
+    //分页查询角色
+    function page(i,s){
+    $("table").empty();
+    $.get("http://localhost:8484/module/module-page?pageNo="+i+"&searchName="+s,
+        function (resp) {
+            var current =resp.current;//当前页
+            sessionStorage.setItem("currentId",current);
+            var page=resp.pages;//分页的页数
+            var pre=current-1;
+            if(pre<=0){
+                pre=current;
+            }
+            var next=current+1;
+            if(next>=page){
+                next=page;
+            }
+
+            var str='<tr>'+
+                '<th>序号</th>'+
+                '<th></th>'+
+                '<th>编号</th>'+
+                '<th>名称</th>'+
+                '<th>所属上级</th>'+
+                '<th>节点类型</th>'+
+                '<th>是否展开</th>'+
+                '<th>排序编号</th>'+
+                '</tr>';
+            $.each(resp.records,function (index,role) {
+                str+='<tr class="tr-role">'+
+                '<td>'+(index+1)+'</td>'+
+                '<td>'+
+                '<input type="checkbox" class="ck-role">'+
+                '<input type="hidden" class="moduleId" value="'+role.moduleId+'">'+
+                '</td>'+
+                '<td>'+role.moduleCode+'</td>'+
+                '<td class="updateByName" style="color: #2e6da4;cursor: pointer">'+role.moduleName+'</td>'+
+                '<td>'+role.parentModule+'</td>'+
+                '<td>'+role.leaf+'</td>'+
+                '<td>'+role.expanded+'</td>'+
+                '<td>'+role.moduleOrder+'</td>'+
+                '</tr>';
+            })
+            $("table").html(str);
+            var str2='<nav aria-label="Page navigation">'+
+                '<ul class="pagination">'+
+                '<li style="border: none;cursor: pointer;" class="prepage" onclick="page('+pre+','+1+')">'+
+                '<span aria-label="Previous">'+
+                '<span aria-hidden="true">&laquo;</span>'+
+                '</span>'+
+                '</li>';
+            for(var i=1;i<=page;i++){
+                str2+='<li style="border: none;cursor: pointer;" id="page_tag_'+i+'" onclick="page('+i+','+1+')">' +
+                    '<span>'+i+' <span class="sr-only"></span></span>' +
+                    '</li>';
+            }
+            str2+='<li style="border: none;cursor: pointer;" class="nextpage" onclick="page('+next+','+1+')">' +
+            '<span aria-label="Next">' +
+            '<span aria-hidden="true">&raquo;</span>'+
+            '</span>' +
+            '</li>' +
+            '</ul>' +
+            '</nav>';
+            $("#rolePage").html(str2)
+            //分页样式
+            $("#page_tag_"+current).addClass("active");
+            if(current==1){
+                $(".prepage").addClass("disabled")
+            }
+            if(current==page){
+                $(".nextpage").addClass("disabled")
+            }
+            //给角色的复选行添加点击事件，让复选框实现单选效果
+            $(".tr-role").click(function () {
+                //去掉所有复选框的选中效果
+                $(".ck-role").prop("checked",false);
+                //给当前选中的复选框设置选中效果
+                $(this).find(".ck-role").prop("checked",true);
+            });
+            //点击权限名称查看详情
+            $(".updateByName").click(function () {
+                var rid=$(this).prev().prev().find(".moduleId").val();
+                update(rid);
+            });
+        })
+    }
+    page(1,1);
+    $(function () {
+        $("#pm").click(function () {
+                $("#treeview3").css("display","block")
+                $("#icon").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up")
+            })
+        //下拉框查询组件点击查询栏时不关闭下拉框
+        $("body").on('click','[data-stopPropagation]',function (e) {
+            e.stopPropagation();
+        });
+        //查询所属上级菜单
+        function getThree(){
+            $.get("http://localhost:8484/module/getThree",function(resp){
+                $('#treeview3').treeview({
+                    levels: 2,
+                    data: resp.data,
+                    showCheckbox: true,
+                    onNodeChecked: function(event, node) {
+                        $("#parentModule").val(node.text);
+                        $("#treeview3").css("display","none");
+                        $("#icon").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+                        $('#treeview3').treeview('uncheckNode', [node.nodeId, { silent: true }]);
+                    }
+                    // onNodeUnchecked: function (event, node) {
+                    //     $("#parentModule").text("请选择上级菜单");
+                    // }
+                });
+            });
+        }
+        //监听模态框开启时执行
+        $('#myModal2').on('show.bs.modal', function () {
+            getThree();
+        })
+        //监听模态框关闭时执行
+        $('#myModal2').on('hide.bs.modal', function () {
+            $("#moduleId").val("");
+            $("#moduleCode").val("");
+            $("#moduleName").val("")
+            $("#moduleOrder").val("");
+            $("#linkUrl").val("")
+            $("#moduleDesc").val("");
+            $("#expanded").find("option[value=1]").prop("selected","selected");
+            $("#leaf").find("option[value=1]").prop("selected","selected");
+            $("#parentModule").val("请选择上级菜单");
+        })
+    })
+    //添加或更新权限
+    function addOrUpdate() {
+        var moduleId=$("#moduleId").val();
+        if(moduleId==""||moduleId==null){
+            if($("#parentModule").text()=="请选择上级菜单"){
+                alert("你还没有选择上级菜单")
+                return;
+            }
+            var roles={moduleName:$("#moduleName").val(),linkUrl:$("#linkUrl").val(),moduleOrder:parseInt($("#moduleOrder").val()),
+                parentModule:$("#parentModule").val(),moduleDesc:$("#moduleDesc").val(),expanded:$("#expanded").val(),
+                leaf:$("#leaf").val()}
+            $.post("http://localhost:8484/module/addModule",roles,function (resp) {
+                if(resp=="success"){
+                    alert("菜单添加成功");
+                    $("#myModal2").modal("hide");
+                    var cid=sessionStorage.getItem("currentId");
+                    page(cid,1);
+                }else{
+                    alert("菜单名称重复");
+                }
+                return false;
+            });
+        }else {
+            var roles={moduleId:$("#moduleId").val(),moduleCode:$("#moduleCode").val(),moduleName:$("#moduleName").val(),
+                linkUrl:$("#linkUrl").val(),moduleOrder:parseInt($("#moduleOrder").val()), parentModule:$("#parentModule").val(),
+                moduleDesc:$("#moduleDesc").val(),expanded:$("#expanded").val(), leaf:$("#leaf").val()}
+            $.post("http://localhost:8484/module/updateModule",roles,function (resp) {
+                if(resp=="success"){
+                    alert("菜单更新成功");
+                    $("#myModal2").modal("hide");
+                    clearData();
+                    var cid=sessionStorage.getItem("currentId");
+                    page(cid,1);
+                }else{
+                    alert("菜单更新失败");
+                }
+                return false;
+            });
+        }
+    }
+    //删除权限
+    function removeModule() {
+        var cid=sessionStorage.getItem("currentId");
+        var len=$("input[type='checkbox']:checked").length;
+        if(len<=0){
+            alert("请先选择要删除的数据");
+            return;
+        }
+        var mid=$("input[type='checkbox']:checked").next().val();
+        if(confirm("确认删除吗？")){
+            $.get("http://localhost:8484/module/removeModule?moduleId="+mid,
+                function (resp) {
+                    if(resp=="success"){
+                        alert("菜单删除成功");
+                        page(cid,1);
+                    }
+                }
+            )
+        }
+    }
+    //更新权限之查询权限
+    function update(mid){
+        if(mid==1){
+            var len=$("input[type='checkbox']:checked").length;
+            if(len<=0){
+                alert("请先选择要修改的数据");
+                return;
+            }
+            mid=$("input[type='checkbox']:checked").next().val();
+        }
+        $("#myModal2").modal("show");
+        $.get("http://localhost:8484/module/getOneModule?moduleId="+mid,
+            function (resp){
+                $("#moduleId").val(resp.moduleId);
+                $("#moduleCode").val(resp.moduleCode);
+                $("#moduleName").val(resp.moduleName);
+                $("#moduleOrder").val(resp.moduleOrder);
+                $("#linkUrl").val(resp.linkUrl);
+                $("#moduleDesc").val(resp.moduleDesc);
+                if(resp.expanded==1){
+                    $("#expanded").find("option[value=1]").prop("selected","selected");
+                }else{
+                    $("#expanded").find("option[value=0]").prop("selected","selected");
+                }
+                if(resp.leaf==1){
+                    $("#leaf").find("option[value=1]").prop("selected","selected");
+                }else{
+                    $("#leaf").find("option[value=0]").prop("selected","selected");
+                }
+                $("#parentModule").val(resp.parentModule);
+            })
+    }
+</script>
+</body>
+</html>

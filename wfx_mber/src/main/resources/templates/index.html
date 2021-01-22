@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8081/user/index -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="./static/default.css" rel="stylesheet" id="lhgdialoglink">
+    <base th:href="${#request.getContextPath()}+'/'">
+    <title>自媒体盈利平台</title>
+    <meta property="qc:admins" content="4441727777670263757">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
+    <link rel="stylesheet" type="text/css" href="./static/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/style-metronic.css">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+    <link rel="stylesheet" type="text/css" href="./static/user-index.css">
+    <!--[if IE 8]>
+    <script type="text/javascript" src="/wxb/script/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var SITE_PUBLIC = '';
+        var SITE_UPLOAD = '/files/';
+    </script>
+</head>
+<body class="admin" style="">
+<div class="" style="left: 0px; top: 0px; visibility: hidden; position: absolute;">
+    <table class="ui_border">
+        <tbody>
+        <tr>
+            <td class="ui_lt"></td>
+            <td class="ui_t"></td>
+            <td class="ui_rt"></td>
+        </tr>
+        <tr>
+            <td class="ui_l"></td>
+            <td class="ui_c">
+                <div class="ui_inner">
+                    <table class="ui_dialog">
+                        <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <div class="ui_title_bar">
+                                    <div class="ui_title" unselectable="on" style="cursor: move;"></div>
+                                    <div class="ui_title_buttons"><a class="ui_min" href="javascript:void(0);"
+                                                                     title="最小化" style="display: inline-block;"><b
+                                            class="ui_min_b"></b></a><a class="ui_max" href="javascript:void(0);"
+                                                                        title="最大化" style="display: inline-block;"><b
+                                            class="ui_max_b"></b></a><a class="ui_res" href="javascript:void(0);"
+                                                                        title="还原"><b class="ui_res_b"></b><b
+                                            class="ui_res_t"></b></a><a class="ui_close" href="javascript:void(0);"
+                                                                        title="关闭(esc键)" style="display: inline-block;">×</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ui_icon" style="display: none;"></td>
+                            <td class="ui_main" style="width: auto; height: auto;">
+                                <div class="ui_content" style="padding: 10px;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="ui_buttons" style="display: none;"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+            <td class="ui_r"></td>
+        </tr>
+        <tr>
+            <td class="ui_lb"></td>
+            <td class="ui_b"></td>
+            <td class="ui_rb" style="cursor: se-resize;"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- top start-->
+
+
+<div class="header signup-header">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://localhost:8081/user/index">
+                <img src="./static/logo.png" id="logoimg" alt="logo">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="menu-user dropdown">
+                    <span class="sep"></span>
+                    <span class="user-btn" id="dropdownMenu1" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                      jack520007
+                    </span>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu user-box" role="menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="http://localhost:8081/user/setting"><i class="fa fa-user"></i> 我的资料 </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8081/user/logout"><i class="fa fa-power-off"></i> 注销用户 </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- top over-->
+<div class="page-container" style="min-height: 309px;">
+    <div class="container">
+        <div class="page-border">
+            <div class="row">
+                <div class="col-xs-2 layout-left">
+
+                    <!-- menu start-->
+
+                    <div class="menu_box" id="menuBar">
+                        <dl class="menu ">
+                            <dt class="menu_title clickable  selected">
+                                <a href="http://localhost:8082/mberpage/index.html">
+                                    <i class="icon_menu fa fa-user"></i>用户中心
+                                </a>
+                            </dt>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable ">
+                                <a href="http://localhost:8082/good/goodList?pageNo=1">
+                                    <i class="icon_menu fa fa-cubes"></i>产品及文案
+                                </a>
+                            </dt>
+
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable ">
+                                <a href="http://localhost:8081/zjy/index">
+                                    <i class="icon_menu fa fa-cubes"></i>特色推广
+                                </a>
+                            </dt>
+
+                        </dl>
+                        <dl class="menu">
+                            <dt class="menu_title"><i class="icon_menu fa fa-file-text"></i>订单与结算</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8082/order/orderList?pageNo=1">我推广的订单</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="结算与返款.html">结算与返款</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="订单结算流水.html">订单结算流水</a>
+                            </dd>
+                        </dl>
+
+
+                        <dl class="menu ">
+                            <dt class="menu_title"><i class="icon_menu fa fa-pie-chart"></i>订单统计</dt>
+                            <dd class="menu_item ">
+                                <a href="商品推广统计.html">商品推广统计</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="渠道推广统计.html">渠道推广统计</a>
+                            </dd>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title"><i class="icon_menu fa fa-cog"></i>资料设置</dt>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/channel/list">渠道设置</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/user/setting">基本信息</a>
+                            </dd>
+                            <dd class="menu_item ">
+                                <a href="http://localhost:8081/user/reset">修改密码</a>
+                            </dd>
+                        </dl>
+                        <dl class="menu ">
+                            <dt class="menu_title clickable">
+                                <a href="http://localhost:8081/user/logout">
+                                    <i class="icon_menu fa fa-power-off"></i>退出登录
+                                </a>
+                            </dt>
+                        </dl>
+                    </div>
+                    <!-- menu over-->
+
+                </div>
+
+                <div class="col-xs-10 layout-right min-height-1">
+                    <style>
+                        .index-num-1 {
+                            display: inline-block;
+                            margin: 0 15px 0 10px;
+                            min-width: 100px;
+                            text-align: right;
+                        }
+                    </style>
+                    <div class="wxb-index-index">
+                        <div class="notice">
+                            <div class="notice-icon"><i class="fa fa-volume-up"></i></div>
+                            <div class="notice-list">
+                                <div class="bx-wrapper" style="max-width: 100%; margin: 0px auto; ">
+                                    <div class="bx-viewport"
+                                         style="width: 100%; overflow: hidden; position: relative; height: 20px; ">
+                                        <div class="bx-wrapper" style="max-width: 100%; margin: 0px auto;">
+                                            <div class="bx-viewport"
+                                                 style="width: 100%; overflow: hidden; position: relative; height: 20px;">
+                                                <ul class="news-notice-list-ul"
+                                                    style="width: auto; position: relative; transition: all 0.5s ease 0s; transform: translate3d(0px, -60px, 0px);">
+                                                    <li data-id="4"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content">
+                                                            关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!
+                                                        </div>
+                                                        <span>公告：</span>
+                                                        <span class="title">关于春节放假期间返款的相关说明!</span>
+                                                        <span class="time">2014-12-21 19:16</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+
+
+                                                    <li data-id="0"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content">网站公告22a</div>
+                                                        <span>公告：</span>
+                                                        <span class="title">网站公告</span>
+                                                        <span class="time">2015-08-27 11:07</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+
+                                                    <li data-id="1"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content"><p>
+                                                            为庆祝微销宝，成为NO.1的微信盈利平台，从2015年5月1日~2015年5月31日继续推出感恩回馈活动。奖励机制如下：
+                                                        </p>
+                                                            <p>
+                                                                在此期间，每个账户
+                                                            </p>
+                                                            <p>
+                                                                签收达到50单，即奖励360儿童智能手表一只，颜色任选；
+                                                            </p>
+                                                            <p>
+                                                                签收达到100单，奖励亚马逊kindle或papago行车记录仪；
+                                                            </p>
+                                                            <p>
+                                                                签收达到300单，奖励小米4手机、魅族MX4手机、华为荣耀6手机 三选一
+                                                            </p>
+                                                            <p>
+                                                                签收达到600单，奖励XBOX ONE带kinect或sony PS4 二选一
+                                                            </p>
+                                                            <p>
+                                                                签收达到1000单，苹果IPHONE 6 plus、 mac air 13寸最新款 二选一
+                                                            </p>
+                                                            <p>
+                                                                签收达到2000单，DELL外星人笔记本电脑17、苹果macbook pro 13.3&nbsp;万元级笔记本电脑
+                                                                二选一
+                                                            </p>
+                                                            <p>
+                                                                签收达到3000单，欧洲五国双人往返10日游、苹果系列套餐（mac pro/iphone6 plus/ipad
+                                                                air） 二选一
+                                                            </p>
+                                                            <p>
+                                                                <br>
+                                                            </p>
+                                                            <p>
+                                                                以上所有奖励6.2日结算并兑现。
+                                                            </p>
+                                                            <p>
+                                                                温馨提示：签收订单在活动期间内发生退货，则此笔订单不计算在内，同时签收率要达到基本的70%以上才能参与大奖活动。
+                                                            </p>
+                                                            <p>
+                                                                <br>
+                                                            </p></div>
+                                                        <span>公告：</span>
+                                                        <span class="title">5月大礼包来了。肾六，十国游应有尽有.也可折现哦.</span>
+                                                        <span class="time">2015-05-08 21:57</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+
+                                                    <li data-id="2"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content"><p
+                                                                style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                            <br>
+                                                        </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="line-height:1.5;font-size:14px;"><strong><span
+                                                                        style="line-height:1.5;font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;1、首先为您介绍一下如何在我们平台如何赚钱。</span></strong></span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="line-height:1.5;font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp;<span
+                                                                        class="Apple-converted-space">&nbsp;</span><span
+                                                                        style="color:#FF0000;line-height:1.5;font-size:10.5pt;background-color:#FBD5B5;">赚钱第<strong>1</strong>步：挑选推广的商品</span></span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="line-height:1.5;font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp; 在左边导航栏点击“产品及文案”选择合适的商品。可以<span
+                                                                        style="color:#0070C0;line-height:1.5;font-size:10.5pt;">针对您的粉丝属性选择商品</span>，比如您的男性粉丝在60%以上，可以选择电子烟、佛珠，如果您的女性粉丝在60%以上，可以选择珍珠套装、瘦腰神贴。</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+	<span style="line-height:1.5;font-size:14px;"><br>
+</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="line-height:1.5;font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span
+                                                                    style="color:#FF0000;line-height:1.5;font-size:10.5pt;background-color:#FBD5B5;">赚钱第<strong>2</strong>步：复制商品文案</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="line-height:1.5;font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp; 选定推广的商品后，进入推广详情，在“推广图文内容”点击宣传文案，将微信推广的商品图文内容复制后，黏贴到您的微信公众号后台的图文消息里。然后请<span
+                                                                        style="color:#0070C0;line-height:1.5;font-size:14px;">一定要复制原文链接到微信公众号后台，粉丝通过这个链接完成下单，您才能获得收益</span>。</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+	<span style="line-height:1.5;font-size:14px;"><br>
+</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;"><span
+                                                                        style="line-height:1.5;font-size:10.5pt;">&nbsp; &nbsp; &nbsp; &nbsp;<span
+                                                                        class="Apple-converted-space">&nbsp;</span><strong><span
+                                                                        style="color:#0070C0;line-height:1.5;font-size:10.5pt;">小秘籍1</span></strong>：</span><span
+                                                                        style="color:#000000;font-size:14px;"><span
+                                                                        style="line-height:1.5;font-size:10.5pt;">首次推广，</span>建议选择<span
+                                                                        style="color:#FF0000;font-size:14px;">利润大分成高</span>的商品，发一次<span
+                                                                        style="color:#FF0000;font-size:14px;">头条</span>，如果粉丝量充足，建议推送<span
+                                                                        style="color:#FF0000;font-size:14px;">10万粉丝</span>，一般<span
+                                                                        style="color:#FF0000;font-size:14px;">晚上9点</span>推送效果较好。推送后统计24小时内的订单量，看看能有多少收益，心里就有数了。如果收益不高，可能没有选对合适的<span
+                                                                        style="line-height:1.5;font-size:10.5pt;">商品，再重新选择商品试推。</span></span></span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;"><span
+                                                                        style="line-height:1.5;font-size:10.5pt;">&nbsp; &nbsp; &nbsp; &nbsp;<span
+                                                                        class="Apple-converted-space">&nbsp;</span><strong><span
+                                                                        style="color:#0070C0;line-height:1.5;font-size:10.5pt;">小秘籍2</span></strong>：<span
+                                                                        style="color:#FF0000;line-height:1.5;font-size:10.5pt;">同一件商品不要长期推广</span>，收益会下降，可以轮换着推，一来可以都试试效果，二来也给粉丝带来新鲜感。</span>平台会定期推出新的产品，基本可以保证大家每天都有不同的产品不同的文案可以推送，也就是保证每天都可以产生订单，每天都可以产生源源不断的收益。 &nbsp;&nbsp;</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp;</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span
+                                                                        style="color:#FF0000;font-size:14px;background-color:#FBD5B5;">赚钱第<strong>3</strong>步：坐等收益</span></span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp; 商品推广出后，请登录平台查看订单情况，一般用户下单，当天可以发出。商户首选<span
+                                                                        style="color:#0070C0;font-size:14px;">顺丰快递，如果顺丰无法送达将选择圆通、申通等快递</span>。货到付款，保证用户下单后，尽快拿到商品，尽快付款，自媒体也能尽快获得收益。</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;"><strong><span
+                                                                        style="font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;2、关于结算：</span></strong><span
+                                                                        style="color:#FF0000;font-size:14px;background-color:#FDEADA;"><strong><span
+                                                                        style="font-size:16px;background-color:#FDEADA;">用户签收后，我们将立即结算</span></strong></span><strong><span
+                                                                        style="font-size:16px;">，返款将在1~3个工作日内完成。请在左边导航栏点击“基本信息”填写您的支付宝账号和姓名，我们将打款到您的支付宝中。</span></strong></span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp; &nbsp; &nbsp;</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微小宝就为您介绍到这啦~，请好好享受赚钱的乐趣。</span>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <span style="font-size:14px;">&nbsp; &nbsp; &nbsp;如果遇到什么问题，请用加入我们的<strong>用户群</strong>：<strong><span
+                                                                        style="color:#FF0000;font-size:14px;background-color:#FDEADA;">2334234</span></strong>，有我们的可爱客服MM为您服务，也可以与大家一起交流分享赚钱经验！</span>
+                                                            </p>
+                                                            <br class="Apple-interchange-newline"></div>
+                                                        <span>公告：</span>
+                                                        <span class="title">如何在我们平台如何赚钱。</span>
+                                                        <span class="time">2014-12-21 19:25</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+
+                                                    <li data-id="3"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content"><p
+                                                                style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                            <strong>关于发货：</strong>
+                                                        </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                &nbsp; &nbsp;
+                                                                我们希望为您的粉丝提供最好的购物体验，因此首选顺丰货到付款，少部分顺丰无网点的偏远地区采用圆通到付，截止目前我们的签收率几乎接近100%，遥遥领先与其它平台。
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                <strong>返款时间：</strong>
+                                                            </p>
+                                                            <p style="color:#000000;text-indent:0px;background-color:#FFFFFF;">
+                                                                &nbsp; &nbsp; 工作日通常在签收当天完成返款，接近下班时间签收的次日完成返款，有问题随时请联系客服。
+                                                            </p></div>
+                                                        <span>公告：</span>
+                                                        <span class="title">关于发货和返款时间</span>
+                                                        <span class="time">2014-12-21 19:25</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+
+                                                    <li data-id="4"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content">
+                                                            关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!关于春节放假期间返款的相关说明!
+                                                        </div>
+                                                        <span>公告：</span>
+                                                        <span class="title">关于春节放假期间返款的相关说明!</span>
+                                                        <span class="time">2014-12-21 19:16</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+
+
+                                                    <li data-id="0"
+                                                        style="float: none; list-style: none; position: relative; width: 700px;"
+                                                        class="bx-clone">
+                                                        <div class="js-content">网站公告22a</div>
+                                                        <span>公告：</span>
+                                                        <span class="title">网站公告</span>
+                                                        <span class="time">2015-08-27 11:07</span>
+                                                        <span class="back"><i class="fa fa-sort-desc"></i></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div id="antitle" style="display:none">
+                            网站公告
+                        </div>
+
+                        <div id="antext" style="display:none">
+                            网站公告22a
+                        </div>
+
+                        <h3 class="hello-word"><strong>jack520007</strong>欢迎回来！</h3>
+
+                        <div class="portlet">
+                            <div class="portlet-title">
+                                <div class="caption"><i class="fa fa-bars"></i> 销售统计：在以下时间段内的订单与返款统计</div>
+                            </div>
+                            <div class="portlet-body">
+                                <ul id="tab1_title" class="clearfix tab-style-10">
+                                    <li class="active" data-type="all">全部</li>
+                                    <li data-type="today">今日</li>
+                                    <li data-type="seven">本周</li>
+                                    <li data-type="month">本月</li>
+                                </ul>
+                                <div id="tab1_body" class="row all" style="margin-bottom: 10px; ">
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps blue">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">5</span>
+                                                    <span class="num-today">0</span>
+                                                    <span class="num-seven">0</span>
+                                                    <span class="num-month">0</span>
+                                                </div>
+                                                <div class="desc">总订单</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps green">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">0</span>
+                                                    <span class="num-today">0</span>
+                                                    <span class="num-seven">0</span>
+                                                    <span class="num-month">0</span>
+                                                </div>
+                                                <div class="desc"> 有效订单</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps red">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">0</span>
+                                                    <span class="num-today">0</span>
+                                                    <span class="num-seven">0</span>
+                                                    <span class="num-month">0</span>
+                                                </div>
+                                                <div class="desc">已结算订单</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps grey">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">0</span>
+                                                    <span class="num-today">0</span>
+                                                    <span class="num-seven">0</span>
+                                                    <span class="num-month">0</span>
+                                                </div>
+                                                <div class="desc">无效订单</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps blue">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">￥50.0</span>
+                                                    <span class="num-today">￥0</span>
+                                                    <span class="num-seven">￥0</span>
+                                                    <span class="num-month">￥0</span>
+                                                </div>
+                                                <div class="desc"> 总金额</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps green">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">￥0.0</span>
+                                                    <span class="num-today">￥0</span>
+                                                    <span class="num-seven">￥0</span>
+                                                    <span class="num-month">￥0</span>
+                                                </div>
+                                                <div class="desc"> 有效订单预计分成</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps red">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">￥0</span>
+                                                    <span class="num-today">￥0</span>
+                                                    <span class="num-seven">￥0</span>
+                                                    <span class="num-month">￥0</span>
+                                                </div>
+                                                <div class="desc">已结算订单应返款</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-3">
+                                        <div class="dashboard-cps grey">
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span class="num-all">￥0.0</span>
+                                                    <span class="num-today">￥0</span>
+                                                    <span class="num-seven">￥0</span>
+                                                    <span class="num-month">￥0</span>
+                                                </div>
+                                                <div class="desc">无效订单分成</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="js-for-all user-index-tips-1">
+                                    <span class="pull-right"><a target="_self" href="http://localhost:8081/payoff/list">结算与返款详情</a></span>
+                                    <span>订单应返款</span>
+                                    <span class="index-num-1">
+                    <span class="highlight-yellow">￥132.0</span> 元
+                </span>
+                                    <span>邀请应返款</span>
+                                    <span class="index-num-1">
+                    <span class="highlight-yellow">￥0.0</span> 元
+                </span>
+                                    <span>合计应返款</span>
+                                    <span class="index-num-1">
+                    <span class="highlight-yellow">￥132.0</span> 元
+                </span>
+                                </div>
+                            </div>
+                            <div class="portlet-title">
+                                <div class="caption"><i class="fa fa-bars"></i> 日销售走势</div>
+                            </div>
+                            <div id="chart1"
+                                 style="height: 300px; background-color: rgba(0, 0, 0, 0); cursor: default; "
+                                 _echarts_instance_="1417509593712">
+                                <div style="position: relative; overflow: hidden; width: 926px; height: 300px;">
+                                    <div width="1157.5" height="375" data-zr-dom-id="bg"
+                                         style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></div>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="0"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="1"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="2"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="3"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="4"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="5"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="6"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="7"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="8"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                    <canvas width="1157.5" height="375" data-zr-dom-id="hover" id="_zrender_hover_"
+                                            style="position: absolute; left: 0px; top: 0px; width: 926px; height: 300px;"></canvas>
+                                </div>
+                            </div>
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-pie-chart"></i> 您推广的订单统计：到目前为止的订单推广统计
+                                </div>
+                            </div>
+                            <div class="portlet-body chart2-wrap">
+                                <table>
+                                    <tbody>
+                                    <tr class="hr-1">
+                                        <td width="120">待审核订单 <span class="tips tooltips" data-placement="top"
+                                                                    data-original-title="包括已下单和确认中的订单，确认中的订单是指商户将进一步联系客户确认订单信息。"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td width="100" class="text-right"><span class="highlight-blue">5</span> 个</td>
+                                        <td width="100">预计分成</td>
+                                        <td width="100" class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=1">查看订单</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="hr-1">
+                                        <td>待跟进订单 <span class="tips tooltips" data-placement="top"
+                                                        data-original-title="商户已经发出商品，物流流转中，客户还未收到商品。"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>预计分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=9">查看订单</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>待配货订单 <span class="tips tooltips" data-placement="top"
+                                                        data-original-title="已经与客户确认完成，商户尚未发货。"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>预计分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=2">查看订单</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>配货中订单 <span class="tips tooltips" data-placement="top"
+                                                        data-original-title="已经与客户确认完成，商户尚未发货。"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>预计分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=4">查看订单</a>
+                                        </td>
+                                    </tr>
+
+                                    <!--<tr class="hr-1">
+                                         <td>待签收订单 <span class="tips tooltips" data-placement="top" data-original-title="商户已经发出商品，物流流转中，客户还未收到商品。"><i class="fa fa-question-circle"></i></span></td>
+                                         <td class="text-right"><span class="highlight-blue">0</span>  个</td>
+                                         <td>预计分成</td>
+                                         <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                         </td>
+                                         <td class="last"><a target="_self" href="http://localhost:8081/order/list/?status=4">查看订单</a></td>
+                                     </tr>-->
+
+                                    <tr class="hr-1">
+                                        <td>已签收订单<span class="tips tooltips" data-placement="top"
+                                                       data-original-title="客户已经签收商品。"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>预计分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=7">查看详情</a>
+                                        </td>
+                                    </tr>
+
+                                    <!--<tr class="hr-1">
+                                        <td>已结算订单<span class="tips tooltips" data-placement="top" data-original-title="用户已经签收，且当前状态是已结算的订单。"><i class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>需要返款 <span class="tips tooltips" data-placement="top" data-original-title="已结算订单的分成累加，未包含邀请奖励部分。"><i class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-yellow">0</span> 元
+                                        </td>
+                                        <td class="last"><a class="jsxq" target="_self" href="http://localhost:8081/order/list/?status=7">结算详情</a></td>
+                                    </tr>-->
+
+                                    <tr>
+                                        <td>已拒收订单 <span class="tips tooltips" data-placement="top"
+                                                        data-original-title="客户已经拒收商品，商品将返回到商户，这样的订单无分成结算。"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>损失分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=6">查看订单</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>已取消订单 <span class="tips tooltips" data-placement="top"
+                                                        data-original-title="订单无效取消"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>损失分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=3">查看订单</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>已退货订单 <span class="tips tooltips" data-placement="top"
+                                                        data-original-title="已退货订单"><i
+                                                class="fa fa-question-circle"></i></span></td>
+                                        <td class="text-right"><span class="highlight-blue">0</span> 个</td>
+                                        <td>损失分成</td>
+                                        <td class="text-right"><span class="highlight-yellow">0.0</span> 元
+                                        </td>
+                                        <td class="last"><a target="_self"
+                                                            href="http://localhost:8081/order/list/?status=8">查看订单</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="chart2">
+                                    <div id="chart2"
+                                         style="width: 360px; height: 230px; background-color: rgba(0, 0, 0, 0); "
+                                         _echarts_instance_="1417509593713">
+                                        <div style="position: relative; overflow: hidden; width: 360px; height: 230px;">
+                                            <div width="450" height="287.5" data-zr-dom-id="bg"
+                                                 style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></div>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="0"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="1"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="2"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="3"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="4"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="5"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="6"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="7"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="8"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                            <canvas width="450" height="287.5" data-zr-dom-id="hover"
+                                                    id="_zrender_hover_"
+                                                    style="position: absolute; left: 0px; top: 0px; width: 360px; height: 230px;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="contact-us">
+                        <h3>联系我们：
+                            <span>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456789&amp;site=qq&amp;menu=yes"><img
+                    border="0" src="./static/pa" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+        </span>
+                        </h3>
+
+                        <p>如果遇到问题请联系我们QQ客服</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer start-->
+
+
+<div class="right-service closed">
+    <img class="RS-img" src="./static/wxb.png">
+    <div class="RS-wrap">
+        <div class="RS-title">@在线客服<span class="RS-title-right-btn"><i class="fa fa-angle-right"></i></span></div>
+        <div class="RS-title-for-closed"><i class="fa fa-ellipsis-h"></i><br>在线客服</div>
+        <ul class="RS-ul">
+            <li class="RS-i1"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">合作咨询<br><span>小强</span></a>
+            </li>
+            <li class="RS-i2"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">异常订单<br><span>小薇</span></a>
+            </li>
+            <li class="RS-i3"><a
+                    href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">财务返款<br><span>小丽</span></a>
+            </li>
+        </ul>
+        <div class="RS-bottom">400-123-1234</div>
+    </div>
+</div>
+
+<div class="copyright">
+    <div class="container text-center">
+        <p>
+            <span class="copyright-icon copyright-icon-1"><img src="./static/copyright-pic-1.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-2"><img src="./static/copyright-pic-2.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-3"><img src="./static/copyright-pic-3.jpg" width="117"></span>
+            <span class="copyright-icon copyright-icon-4"><img src="./static/copyright-pic-4.jpg" width="109"></span>
+        </p>
+        <p>
+            Copyright ? 2015
+        </p>
+        <p>
+            客服电话：400-123-1234
+        </p>
+
+    </div>
+</div>
+<div id="topcontrol" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer; " title="返回顶部">
+    <div class="back-to-top"></div>
+</div>
+
+<!-- cnzz 统计开始
+<div style='display:none'>
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_307679'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D307679' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+ cnzz 统计结束-->
+<!-- footer over-->
+
+
+<script type="text/javascript" src="./static/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./static/bootstrap.min.js"></script>
+<script type="text/javascript" src="./static/underscore-min.js"></script>
+<script type="text/javascript" src="./static/back-to-top.js"></script>
+<script type="text/javascript" src="./static/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="./static/win.js"></script>
+<script type="text/javascript" src="./static/app.js"></script>
+<script type="text/javascript" src="./static/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="./static/ZeroClipboard.min.js"></script>
+<script type="text/javascript" src="./static/echarts-plain.js"></script>
+<script type="text/javascript" src="./static/chart-tools.js"></script>
+
+<script type="text/javascript" src="./static/lhgdialog.min.js"></script>
+<script type="text/javascript">
+    (function (config) {
+        config['extendDrag'] = true; // 注意，此配置参数只能在这里使用全局配置，在调用窗口的传参数使用无效
+        config['lock'] = true;
+        config['fixed'] = true;
+        config['okVal'] = '确定';
+        config['cancelVal'] = '取消';
+    })($.dialog.setting);
+
+    // 如果只设置一个或少量全局配置也可这样：
+    $.dialog.setting.extendDrag = true;
+
+    function showBarCode() {
+        $.dialog({
+            id: 'bcode',
+            title: '邀请二维码',
+            lock: true,
+            max: false,
+            min: false,
+            content: '<img src="/index/barcode?qtext=http://localhost:8081/" width="240" height="240" />',
+            padding: 0
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    var chartInfo = [
+        {
+            id: 'chart1',
+            title: ['当日订单', '当日浏览数', '当日IP数'],
+            key: ['orders', 'view_times', 'ip_times']
+        }
+    ];
+    var initChartData = [{"date": "2019-02-28", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-01",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-02", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-03",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-04", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-05",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-06", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-07",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-08", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-09",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-10", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-11",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-12", "orders": 0, "view_times": 0, "ip_times": 0}, {
+        "date": "2019-03-13",
+        "orders": 0,
+        "view_times": 0,
+        "ip_times": 0
+    }, {"date": "2019-03-14", "orders": 0, "view_times": 0, "ip_times": 0}];
+    var chart2Info = {
+        id: 'chart2',
+        title: ['待审核订单', '待跟进订单', '待配货订单', '已配货订单', '已签收订单', '已拒收订单', '已取消订单', '已退货订单']
+    };
+    var chart2Data = [
+        '5',
+        '0',
+        '0',
+        '0',
+        '0',
+        '0',
+        '0',
+        '0'
+    ];
+    $(function () {
+        var chart1 = renderChart1(chartInfo, initChartData);
+        var chart2 = renderChart2(chart2Info, chart2Data);
+        window.slider = $(".news-notice-list-ul").bxSlider({
+            mode: 'vertical',
+            auto: true,
+            pager: false,
+            controls: false,
+            autoHover: true
+        });
+        $('#tab1_title li').click(function () {
+            var type = $(this).attr('data-type');
+            $(this).addClass('active').siblings().removeClass('active');
+            $('#tab1_body').attr('class', 'row ' + type);
+            if (type == 'all') {
+                $('.js-for-all').show();
+            } else {
+                $('.js-for-all').hide();
+            }
+        });
+        $(".notice").on("click", ".title", function () {
+            var title = $(this).text();
+            var content = $(this).closest("li").find(".js-content").html();
+            Win.open({
+                title: title,
+                width: "800px",
+                content: content
+            })
+        })
+        $(".notice").on("click", ".back", function () {
+            slider.goToPrevSlide();
+        })
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        var client = new ZeroClipboard($(".user-invite-copy-link"));
+        ZeroClipboard.config({swfPath: SITE_PUBLIC + "/wxb/script/ZeroClipboard.swf"});
+        client.on('ready', function (event) {
+            client.on('copy', function (event) {
+                var html = $('#inviteLink').val();
+                event.clipboardData.setData('text/html', html);
+                event.clipboardData.setData('text/plain', html);
+            });
+            client.on('aftercopy', function (event) {
+                toastr.success('复制成功', {});
+            });
+        });
+    });
+
+    //自动弹出公告
+    var str = $.cookie("cps_notice_activity");
+    if (!str || str != 13) {
+        var nstitle = $("#antitle").text();
+        var nstext = $("#antext").html();
+        if (nstitle != '' && nstext != '') {
+            var modal = Win.open({
+                title: nstitle,
+                content: nstext,
+                width: 800,
+                height: 450
+            });
+
+            $.cookie("cps_notice_activity", 13);
+        }
+
+    }
+
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+    });
+</script>
+
+
+<div id="topcontrol" title="返回顶部" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer;">
+    <div class="back-to-top"></div>
+</div>
+<div id="ldg_dragmask"
+     style="display: none; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; cursor: move; opacity: 0; background: rgb(255, 255, 255); pointer-events: none;"></div>
+</body>
+</html>

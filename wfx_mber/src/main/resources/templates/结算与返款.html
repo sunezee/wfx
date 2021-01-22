@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://localhost:8081/payoff/list -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>自媒体盈利平台</title>
+    <meta property="qc:admins" content="4441727777670263757">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
+    <link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
+    <link rel="stylesheet" type="text/css" href="./static/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./static/style-metronic.css">
+	<link rel="stylesheet" type="text/css" href="./static/style.css">
+	<link rel="stylesheet" type="text/css" href="./static/bootstrap-datepicker.css">
+    <!--[if IE 8]>
+    <script type="text/javascript" src="/wxb/script/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var SITE_PUBLIC='/';
+        var SITE_UPLOAD='/files/';
+    </script>
+</head>
+<body class="admin" style="">
+<!-- top start-->
+
+
+<div class="header signup-header">
+    <div class="container">
+        <div class="navbar-header">
+             <a class="navbar-brand" href="http://localhost:8081/user/index">
+                <img src="./static/logo.png" id="logoimg" alt="logo">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="menu-user dropdown">
+                    <span class="sep"></span>
+                    <span class="user-btn" id="dropdownMenu1" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                      qq123456                   
+                    </span>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu user-box" role="menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="http://localhost:8081/user/setting"><i class="fa fa-user"></i> 我的资料 </a>
+                        </li>                        
+                        <li>
+                            <a href="http://localhost:8081/user/logout"><i class="fa fa-power-off"></i> 注销用户 </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- top over-->
+<div class="page-container" style="min-height: 403px;">
+    <div class="container">
+        <div class="page-border">
+            <div class="row">
+                <div class="col-xs-2 layout-left">
+                     <!-- menu start-->
+                     
+<div class="menu_box" id="menuBar">
+     <dl class="menu ">
+         <dt class="menu_title clickable  ">
+             <a href="http://localhost:8081/user/index">
+                 <i class="icon_menu fa fa-user"></i>用户中心
+             </a>
+         </dt>
+     </dl>
+     <dl class="menu ">
+         <dt class="menu_title clickable ">
+             <a href="http://localhost:8081/goods/list">
+                 <i class="icon_menu fa fa-cubes"></i>产品及文案
+             </a>
+         </dt>
+        
+     </dl>
+      <dl class="menu ">
+         <dt class="menu_title clickable ">
+             <a href="http://localhost:8081/zjy/index">
+                <i class="icon_menu fa fa-cubes"></i>特色推广
+             </a>
+         </dt>
+        
+     </dl>
+     <dl class="menu">
+         <dt class="menu_title"><i class="icon_menu fa fa-file-text"></i>订单与结算</dt>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/order/list">我推广的订单</a>
+         </dd>
+         <dd class="menu_item selected">
+             <a href="http://localhost:8081/payoff/list">结算与返款</a>
+         </dd>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/payoff/log">订单结算流水</a>
+         </dd>
+     </dl>
+     
+      
+     
+     <dl class="menu ">
+         <dt class="menu_title"><i class="icon_menu fa fa-pie-chart"></i>订单统计</dt>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/report/goods">商品推广统计</a>
+         </dd>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/report/channel">渠道推广统计</a>
+         </dd>
+     </dl>
+     <dl class="menu ">
+         <dt class="menu_title"><i class="icon_menu fa fa-cog"></i>资料设置</dt>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/channel/list">渠道设置</a>
+         </dd>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/user/setting">基本信息</a>
+         </dd>
+         <dd class="menu_item ">
+             <a href="http://localhost:8081/user/reset">修改密码</a>
+         </dd>
+     </dl>
+     <dl class="menu ">
+         <dt class="menu_title clickable">
+             <a href="http://localhost:8081/user/logout">
+                 <i class="icon_menu fa fa-power-off"></i>退出登录
+             </a>
+         </dt>
+     </dl>
+ </div>
+                    <!-- menu over-->
+                </div>
+                
+<div class="col-xs-10 layout-right min-height-1">
+<h2 class="page-title"><em>结算与返款</em></h2>
+<div class="top-area clearfix">
+	<form id="listForm" action="http://localhost:8081/payoff/list" method="post">
+	<div class="input-group date-picker input-daterange" style="width:250px;">
+        <input type="text" class="form-control" id="start_date" name="start_date" value="">
+            <span class="input-group-addon">
+                至
+            </span>
+        <input type="text" class="form-control" id="end_date" name="end_date" value="">
+    </div>
+    <div class="input-group" id="js-sel-tag" style="width:440px;">
+       <span class="input-group-btn">
+           <button class="btn green search_btn" type="button"><i class="fa fa-search"></i></button>
+       </span>
+        &nbsp;&nbsp;&nbsp;
+        <input id="date_id" name="date_id" value="" type="hidden">
+        <span class="tag-type1 tag-type1-all active">全部 </span>
+         
+		    
+		       <span class="tag-type1 tag-type1-all " data-id="1">今日</span>
+		    
+		       <span class="tag-type1 tag-type1-all " data-id="-1">昨天</span>
+		    
+		       <span class="tag-type1 tag-type1-all " data-id="7">本周</span>
+		    
+		       <span class="tag-type1 tag-type1-all " data-id="30">本月</span>
+		    
+		
+    </div>
+    </form>
+</div>
+
+<div class="margin-top-10" id="yesList">
+    <table id="yes_table" class="table table-cps table-hover  table-advance">
+        <thead>
+        <tr class="col-align-center">
+            <th>结算时间</th>
+            <th>订单结算(/元)</th>
+            <th>邀请奖励(/元)</th>
+            <th width="200">应返款(/元)</th>
+            <th width="200">状态</th>
+        </tr>
+        </thead>
+        <tbody>
+          
+		  
+	          <tr class="col-align-center" id="gItem91" data-id="91">
+	        	<td class="account-list-first-col">2016-03-24 00:05:55</td>
+	            <td>132.0</td>
+	            <td>0.0</td>
+	            <td><font class="text-yellow text-bold">132.0</font></td>
+	            <td>
+		            
+		            <font class="text-green text-bold">已支付</font>
+		            
+		            
+	            </td>
+	          </tr>
+          
+          
+		</tbody>
+    </table>
+
+    <!--翻页-->
+	<div class="grid-pagination-wrap text-center clearfix show">
+	 <div class="jogger"> 
+			  
+			   
+			   
+			   
+			   
+				
+					
+					   
+							1
+					   
+					   
+					
+				
+				
+				
+			
+			<a href="javascript:void(0);">共1页</a>
+			<a href="javascript:void(0);">1条记录</a>
+	     </div>
+	 </div>
+
+	</div>
+  </div>
+  </div>
+ </div>
+</div>
+
+<!-- footer start-->
+
+
+<div class="right-service closed">
+   <img class="RS-img" src="./static/wxb.png">
+   <div class="RS-wrap">
+       <div class="RS-title">@在线客服<span class="RS-title-right-btn"><i class="fa fa-angle-right"></i></span></div>
+       <div class="RS-title-for-closed"><i class="fa fa-ellipsis-h"></i><br>在线客服</div>
+       <ul class="RS-ul">
+           <li class="RS-i1"><a href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">合作咨询<br><span>小强</span></a></li>
+           <li class="RS-i2"><a href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">异常订单<br><span>小薇</span></a></li>
+           <li class="RS-i3"><a href="tencent://message/?uin=123456789&amp;Site=wxb.com&amp;Menu=yes">财务返款<br><span>小丽</span></a></li>
+       </ul>
+       <div class="RS-bottom">400-123-1234</div>
+   </div>
+</div>
+
+<div class="copyright">
+    <div class="container text-center">
+            <p>
+            <span class="copyright-icon copyright-icon-1"><img src="./static/copyright-pic-1.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-2"><img src="./static/copyright-pic-2.jpg" width="94"></span>
+            <span class="copyright-icon copyright-icon-3"><img src="./static/copyright-pic-3.jpg" width="117"></span>
+            <span class="copyright-icon copyright-icon-4"><img src="./static/copyright-pic-4.jpg" width="109"></span>
+        </p>
+    	<p>
+            Copyright ? 2015
+        </p>
+        <p>
+            客服电话：400-123-1234
+        </p>
+       
+    </div>
+</div>
+<div id="topcontrol" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer; " title="返回顶部"><div class="back-to-top"></div></div>
+
+<!-- cnzz 统计开始
+<div style='display:none'>
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_307679'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D307679' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+ cnzz 统计结束-->
+<!-- footer over-->
+
+<script type="text/javascript" src="./static/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./static/bootstrap.min.js"></script>
+<script type="text/javascript" src="./static/underscore-min.js"></script>
+<script type="text/javascript" src="./static/back-to-top.js"></script>
+<script type="text/javascript" src="./static/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="./static/win.js"></script>
+<script type="text/javascript" src="./static/app.js"></script>
+<script type="text/javascript" src="./static/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function(){
+        
+        $('#js-sel-tag .tag-type1').click(function () {
+            var date_id=$(this).attr('data-id');
+            $(this).addClass('active').siblings().removeClass('active');
+            $('#date_id').val(date_id);
+            $('#start_date').val("");
+            $('#end_date').val("");
+            $('#listForm').submit();
+        });
+        
+        $('.search_btn').click(function () {
+            var end_date = $('#end_date').val();
+            var start_date = $('#start_date').val();
+            if(start_date==''||start_date==null){
+               toastr.error("请选择开始日期！");
+               return false;
+            }
+            if(end_date==''||end_date==null){
+               toastr.error("请选择结束日期！");
+               return false;
+            }
+            $('#date_id').val("");
+            $('#listForm').submit();
+
+        });
+        $('.date-picker').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        });
+        
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
+
+</div><div id="topcontrol" title="返回顶部" style="position: fixed; bottom: 110px; right: 10px; opacity: 0; cursor: pointer;"><div class="back-to-top"></div></div></body></html>

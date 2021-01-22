@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://javen666.com:8080/fxmall/buy/1/cGIxbjNyeWEtMDM0NTI0MTQ= -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="pragma" content="no-cache">
+    <meta name="Cache-Control" content="no-cache, must-revalidate">
+    <meta name="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>订单信息</title>
+    <!--百度地图-->
+    <style type="text/css">
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";font-size:14px;}
+        #l-map{height:300px;width:100%;}
+        #r-result{width:100%;}
+        .sku_ul li{
+            cursor: pointer;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+        .active{
+            background: #0da3e2;
+            color: white;
+        }
+        .select{
+            width: 30%;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=xWCTBHyDEWEYu7RHFa2Vazw4hu4Qo2BC">
+    </script>
+    <link rel="stylesheet" type="text/css" href="zmt/buy.css">
+    <link rel="stylesheet" type="text/css" href="zmt/tempAlert.css">
+    <link rel="shortcut i/gif" href="http://javen666.com:8080/fxmall/wxb/images/favicon.gif">
+</head>
+<body>
+<form id="form_buy" name="form_buy" class="buy-form" method="post" action="/order/saveOrder">
+    <input type="hidden" id="token" name="token" value="bpHjQ0Aqetmrh4+sVimKIQ==">
+    <input type="hidden" name="goodId" id="goodId" th:value="${good.goodId}">
+    <input type="hidden" name="skuId" id="skuId">
+    <section class="item_sec">
+        <div class="item_wrap rel">
+            <div class="img_wrap"><img th:src="${good.goodPic}" height="70"></div>
+            <p class="item_tle" th:text="${good.goodName}">444</p>
+            <p class="item_pay">货到付款并包邮</p>
+            <ul class="sku_ul">
+                <p>套餐：</p>
+                <li th:each="sku:${good.sku2List}" >
+                    <span th:text="${sku.skuName}"></span>
+                    <input type="hidden" name="skuprice" th:value="${sku.skuPrice}">
+                    <input type="hidden" name="skuid" id="skuIdd" th:value="${sku.skuId}">
+                </li>
+            </ul>
+            <p>已有：<font style="color:red;text-align:center" th:text="${good.sellNum}">26 </font>人购买</p>
+            <p class="row">
+                <label>价　格 </label>
+                <span class="i_pri" id="item_price">0.0</span>
+            </p>
+            <!-- <input required="required" id="item_num" name="number" 
+            maxlength="3" class="block input" type="hidden"
+                   value="1"> -->
+            <p class="row">
+                <label>数　量 </label>
+                <input required="required" id="item_num" name="buyNum" maxlength="3" class="block input" style="width:40px;text-align:center" type="tel" value="1" oninput="changeP()">
+            </p>
+            <p>
+                <input type="radio" id="pay_type1" name="payType"  value="1" checked="checked">货到付款并包邮(支持开箱验货)
+                <input type="radio" id="pay_type2" name="payType"  value="2"> 微信支付
+            </p>
+        </div>
+    </section>
+    <section class="item_sec">
+        <div class="item_wrap add">
+            <p class="row">
+                <label for="name">收货人</label>
+                <input required="required" id="name" name="buyerName" class="block input" type="text" value=""
+                       placeholder="请输入您的姓名或称呼">
+            </p>
+            <p class="row">
+                <label for="tel">联系手机</label>
+                <input required="required" id="tel" name="buyerPhone" maxlength="11" class="block input" type="tel"
+                       value="" placeholder="请输入您的手机号码">
+            </p>
+            <p class="row">
+                <label for="cmbProvince">选择地区</label>
+                <select class="select" id="cmbProvince" name="province">
+                </select>
+                <select class="select" id="cmbCity" name="city">
+                </select>
+                <select class="select" id="cmbArea" name="area">
+                </select>
+            </p>
+            <p class="row row_area">
+                <div id="l-map"></div>
+            </p>
+            <p class="row row_area">
+                <label for="suggestId">详细地址</label>
+                <input required="required" id="suggestId" name="address" class="block input" placeholder="请填写详细地址，方便快递人员送货上门"
+                       type="text" value="">
+                <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+            </p>
+            <p class="row row_area">
+                <label for="other">您的留言</label>
+                <input id="other" name="buyerReamrk" class="block input" type="text" value=""
+                       placeholder="可以告诉卖家您对商品的特殊要求，如：颜色、数量等">
+            </p>
+            <p id="mbcaptchaWrap" class="row row_area" style="display:none;">
+                <label for="other">手机验证码</label>
+                <input id="mbcaptcha" name="mbcaptcha" class="block input mbcaptcha" type="text" value="">
+                <input id="ckbtn" name="ckbtn" type="button" onclick="getMobileCode();" title="点击获取手机验证码"
+                       style="border:0px solid #fff;width:100px;height:30px;background:#f60;cursor:pointer;color:#fff"
+                       value="获取验证码">
+            </p>
+            <p id="captchaWrap" style="display: none;" class="row row_area">
+                <label for="other">验证码</label>
+                <input id="captcha" name="captcha" class="block input captcha" type="text" value="">
+                <img class="check-code js-refresh-check" src="zmt/captcha" alt="验证码">
+            </p>
+        </div>
+    </section>
+    <footer>
+        <button type="button" class="c_txt orange_bg" id="buy_now" onclick="order()">提交订单</button>
+    </footer>
+
+    <div style="height:100px;">&nbsp;
+        注：提交订单后我们会有专门的客服与您联系，请保持手机畅通。
+    </div>
+
+</form>
+
+<script type="text/javascript" src="zmt/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="zmt/address.js"></script>
+<script type="text/javascript" src="zmt/tempAlert.js"></script>
+
+<script>
+    //更改数量时更改价格
+    function changeP(){
+        var price= parseInt($(".sku_ul").find(".active").find("input").val());
+        var num=$("#item_num").val();
+        if(num<0||num.isPrototypeOf("number")){
+            $("#item_price").text("0.0")
+            return;
+        }
+        var fprice=price*num;
+        $("#item_price").text(fprice)
+    }
+    //选择套餐指定价格
+    $(function(){
+        $(".sku_ul").find("li").click(function(){
+            $("#skuId").val($(this).find("input[name='skuid']").val())
+            var price= parseInt($(this).find("input[name='skuprice']").val());
+            var num=$("#item_num").val();
+            if(num<0||num.isPrototypeOf("number")){
+                $("#item_price").text("0.0")
+                return;
+            }
+            var fprice=price*num;
+            $("#item_price").text(fprice);
+            $(this).addClass("active");
+            $(this).siblings("li").removeClass("active");
+        });
+        //选择地址
+        addressInit('cmbProvince', 'cmbCity', 'cmbArea','湖北','武汉市','武昌区');
+        //切换城市时切换地图
+        $("#cmbCity").change(function(){
+            var city=$(this).find("option:selected").text()
+            console.log(city);
+            map.centerAndZoom(city,12);
+        })
+        //切换地区时切换地图
+        $("#cmbArea").change(function(){
+            var area=$(this).find("option:selected").text()
+            console.log(area);
+            map.centerAndZoom(area,12);
+        })
+    })
+    var buyTimes = '0';
+    var check_code = '';
+    if (buyTimes > 5) {
+        $('#captchaWrap').show();
+    }
+
+    try {
+        window.addEventListener('load', function () {
+            FastClick.attach(document.body);
+        }, false);
+    } catch (e) {
+    }
+
+    //addressInit("province", "city", "area");
+    //var pcas = new PCAS("province,省 必选","city,市 必选","area,区 必选");
+    var Item = {
+        getItemInfo: function () {
+
+        },
+        changeCount: function () {
+            $("#item_num").bind("focusout", function () {
+                var _this = $(this);
+                var val = _this.val();
+                if (!val) {
+                    M._alert("数量不可为空");
+                    _this.val(1);
+                    return;
+                }
+                if (isNaN(val)) {
+                    M._alert("数量必须为数字");
+                    _this.val(1);
+                    return;
+                }
+                if (Number(val) < 1) {
+                    M._alert("客官至少买一件嘛");
+                    _this.val(1);
+                    return;
+                }
+
+                var _v = val;
+                var noInt = false;
+                if (_v.toString().indexOf(".") != -1) {//有小数点 则先转化一下
+                    noInt = true;
+                    _v = Math.floor(val);//优化后的整数
+                }
+                noInt && M._alert("数量必须为整数");
+                _this.val(_v);
+
+                if ($(".sku_cur").length === 0) {
+                    M._alert("请选择商品类型");
+                    return;
+                }
+                var countPrice = $(".sku_cur").attr("data-price") * _v;
+                countPrice = Number(countPrice).toFixed(2);
+
+
+            })
+        },
+        init: function () {
+            Item.changeCount();
+            Item.getItemInfo();
+            $("#buy_now").bind("click", function () {
+                var isRight = true;
+                var skuId = $("#item_sku_id").val();//商品ID
+                var name = $("#name").val();//收货人
+                var tel = $("#tel").val();//联系手机
+                var province = $("#province").val();//省
+                var city = $("#city").val();//市
+                var area = $("#area").val();//区
+                var address = $("#address").val();//区
+                var rule = /^1[3-8][0-9]\d{4,8}$/;
+                var mbcaptcha = $('[name="mbcaptcha"]');
+                var captcha = $('[name="captcha"]');
+                var captcha_val = captcha.val();
+                var mbcaptcha_val = mbcaptcha.val();
+
+                if (skuId == '') {
+
+                    showWin.alertWin("请选择商品类型", "success");
+                    isRight = false;
+                } else if (name == '') {
+
+                    showWin.alertWin("请填写收货人", "success");
+                    isRight = false;
+                } else if (tel == '') {
+
+                    showWin.alertWin("请填写联系手机", "success");
+                    isRight = false;
+                } else if (province == '' || city == '' || area == '') {
+
+                    showWin.alertWin("请选择地区", "success");
+                    isRight = false;
+                } else if (address == '') {
+
+                    showWin.alertWin("请填写详细地址", "success");
+                    isRight = false;
+                } else if (tel.length != 11 || rule.test(tel) == false) {
+
+                    showWin.alertWin("联系手机格式不对", "success");
+                    isRight = false;
+                } else if (mbcaptcha.is(':visible') && mbcaptcha_val.length < 1) {
+
+                    showWin.alertWin("请输入手机验证码", "success");
+                    mbcaptcha.focus();
+                    isRight = false;
+                } else if (captcha.is(':visible') && captcha_val.length < 1) {
+
+                    showWin.alertWin("请输入验证码", "success");
+                    captcha.focus();
+                    isRight = false;
+                }
+
+
+                if (isRight) {
+                    if (check_code == 1) {//开启验证
+                        //验证手机验证码
+                        if (checkMobileCode() == 0) {
+                            M._alert('手机验证码不正确!');
+                            mbcaptcha.focus();
+                            return false;
+                        }
+                    }
+                    $(this).unbind('click');
+                    document.getElementById("form_buy").submit();
+                }
+            });
+
+            $(".js-refresh-check").click(function (event) {
+                refreshCheck();
+            });
+        }
+    }
+    Item.init();
+
+    //获取校验码
+    function refreshCheck() {
+        var url = '/fxmall/index/captcha';
+        $('.check-code').attr('src', url + '?t=' + new Date().getTime());
+        $('.captcha').val('').focus();
+    }
+
+    //获取手机验证码
+    function getMobileCode() {
+        var mobile = $("#tel").val();
+        if (mobile == '') {
+            M._alert("请填写手机号码");
+            return false;
+        }
+        var action = '/fxmall/mobile/vcode';
+        $.ajax({
+            url: action,
+            type: 'post',
+            data: "mobile=" + mobile,
+            dataType: 'text',
+            success: function (response) {
+                var suc = response.split("#")[0];
+                var msg = response.split("#")[1];
+                if (suc == '1') {
+                    M._alert(msg);
+                    countDown(60);
+                } else {
+                    M._alert(msg);
+                }
+            },
+            error: function () {
+                M._alert("获取验证码失败!");
+            }
+        });
+    }
+
+    //验证手机验证码
+    function checkMobileCode() {
+        var vcode = $("#mbcaptcha").val();
+        if (vcode == '') {
+            alert("请填写手机手机验证码!");
+            return false;
+        }
+        var action = '/fxmall/mobile/check';
+        var param = "vcode=" + vcode;
+        return commonLoad(action, param, "post");
+    }
+
+    function countDown(secs) {
+        $('[name="ckbtn"]').val(secs + "秒后重新获取")
+        $("#ckbtn").attr("disabled", true);
+        if (--secs > 0) {
+            setTimeout("countDown(" + secs + ")", 1000);
+        } else {
+            $("#ckbtn").removeAttr("disabled");
+        }
+    }
+
+
+    function commonLoad(url, param, method) {
+        var obj;
+        var value;
+        if (window.ActiveXObject) {
+            obj = new ActiveXObject('Microsoft.XMLHTTP');
+        } else if (window.XMLHttpRequest) {
+            obj = new XMLHttpRequest();
+        }
+        obj.open(method, url, false);
+        obj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obj.send(param);
+        var result = obj.responseText
+        return result;
+    }
+
+    function clearrvl() {
+        document.form_buy.reset();
+    }
+
+    function dosubmit() {
+        //获取表单提交按钮
+        var btnSubmit = document.getElementById("buy_now");
+        //将表单提交按钮设置为不可用，这样就可以避免用户再次点击提交按钮
+        btnSubmit.disabled = "disabled";
+        //返回true让表单可以正常提交
+        return true;
+    }
+
+
+    function changeAtt(t) {
+        t.lastChild.checked = 'checked';
+        for (var i = 0; i < t.parentNode.childNodes.length; i++) {
+            if (t.parentNode.childNodes[i].className == 'cattsel') {
+                t.parentNode.childNodes[i].className = '';
+            }
+        }
+        t.className = "cattsel";
+        changePrice();
+    }
+
+
+    /**
+     * 点选可选属性或改变数量时修改商品价格的函数
+     */
+    function changePrice() {
+
+        var attr = getSelectedAttributes(document.forms['form_buy']);
+        var attr_id = '';
+
+        for (var i = 0; i < attr.length; i++) {
+            attr_id += attr[i] + ',';
+        }
+        attr_id = attr_id.substring(0, attr_id.length - 1);
+        //alert(attr_id);
+        var pay_type = $('input[name="pay_type"]:checked').val();
+        ;
+        //alert(pay_type);
+
+        $.ajax({
+            url: "http://115.29.207.161:8080//getGoodPrice",// 跳转到 action
+            data: {
+                "goods_id": 'pb1n3rya',
+                "attr_id": attr_id,
+                "pay_type": pay_type
+            },
+            type: 'post',
+            cache: false,
+            dataType: "text",
+            success: function (result) {
+                $data = eval("(" + result + ")");
+                // alert($data.jg);
+                $("#item_price").html("￥" + $data.jg);
+                $("#attr_id").val($data.attr_id);
+            },
+            error: function () {
+
+                // alert("异常！");
+            }
+        });
+
+    }
+
+    function getSelectedAttributes(formBuy) {
+        var spec_arr = new Array();
+        var j = 0;
+
+        for (i = 0; i < formBuy.elements.length; i++) {
+            var prefix = formBuy.elements[i].name.substr(0, 5);
+
+            if (prefix == 'spec_' && (
+                ((formBuy.elements[i].type == 'radio' || formBuy.elements[i].type == 'checkbox') && formBuy.elements[i].checked) ||
+                formBuy.elements[i].tagName == 'SELECT')) {
+                spec_arr[j] = formBuy.elements[i].value;
+                j++;
+            }
+        }
+
+        return spec_arr;
+    }
+
+    changePrice();
+    var jishi = 0;
+
+    function setjishi() {
+        jishi = jishi + 1;
+
+        $("#miaoshu").val(jishi);
+    }
+
+    setInterval('setjishi()', 1000);
+
+</script>
+<style>
+    .zzsc {
+        width: 50px;
+        height: 45px;
+        position: fixed;
+        right: 0;
+        top: 60%;
+        margin-top: -125px;
+        z-index: 900;
+    }
+
+    .zzsc a {
+        width: 50px;
+        height: 45px;
+        float: left;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+</style>
+<div class="zzsc">
+
+</div>
+
+<script>
+
+    var defaultCity="武汉市";
+   /*
+   *
+   * [{"湖北省":[{"武汉市":[{"江汉区"}]}]},
+   * {"湖南省":[{"长沙市":[{"sss"}]}]}]
+   *
+   * 这是一个map结构数据类型
+   *
+   * */
+
+   // $.get("address/province",function (data) {
+   //     console.log(data);
+   //     var len = data.length;
+   //     for (let i = 0; i < len; i++) {
+   //         $("#province").append("<option value='"+data[i]+"'>"+data[i]+"</option>")
+   //     }
+   //
+   // })
+   //
+   //  function selectCity(){
+   //
+   //     //被选中的值
+   //     var selectValue = $("#province").val();
+   //
+   //
+   //
+   //     $.get("address/city?province="+selectValue,function (data) {
+   //         console.log(data);
+   //
+   //         var len = data.length;
+   //         $("#city").html("<option value=\"\">市 必选</option>")
+   //         for (let i = 0; i < len; i++) {
+   //             $("#city").append("<option value='"+data[i]+"'>"+data[i]+"</option>")
+   //         }
+   //     })
+   //  }
+   //
+   // function selectArea(){
+   //
+   //     //被选中的值
+   //     var selectValue = $("#city").val();
+   //
+   //     defaultCity = selectValue;
+   //
+   //     map.centerAndZoom(defaultCity,12);                   // 初始化地图,设置城市和地图级别。
+   //
+   //     $.get("address/area?city="+selectValue,function (data) {
+   //         console.log(data);
+   //
+   //         var len = data.length;
+   //         for (let i = 0; i < len; i++) {
+   //             $("#area").append("<option value='"+data[i]+"'>"+data[i]+"</option>")
+   //         }
+   //     })
+   // }
+</script>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var map = new BMap.Map("l-map");
+    map.centerAndZoom(defaultCity,12);                   // 初始化地图,设置城市和地图级别。
+
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {"input" : "suggestId"
+            ,"location" : map
+        });
+
+    ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+        setPlace();
+    });
+
+    function setPlace(){
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun(){
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+
+    function order() {
+        var buyerName = $("#name").val();
+        if (null==buyerName || buyerName=="") {
+            alert("购买人信息必须填写");
+            return;
+        }
+        var len=$(".sku_ul").find(".active").length;
+        if(len<=0){
+            alert("请选择一个套餐");
+            return;
+        }
+        $("#form_buy").submit();
+    }
+    </script>
+</body>
+</html>
